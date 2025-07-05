@@ -2,20 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Palette, Code, Server } from "lucide-react"
-import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiHtml5,
-  SiCss3,
-  SiFigma,
-  SiCanva,
-  SiNodedotjs,
-  SiSupabase,
-  SiVercel,
-} from "react-icons/si"
+import { Palette, Code, Smartphone, Server } from "lucide-react"
 
 export default function Skills() {
   const [ref, inView] = useInView({
@@ -25,39 +12,32 @@ export default function Skills() {
 
   const skills = [
     {
-      icon: <Code size={32} />,
-      title: "Frontend",
-      tools: [
-        { name: "React.js", icon: <SiReact className="text-cyan-500" /> },
-        { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" /> },
-        { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
-        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-400" /> },
-        { name: "HTML5", icon: <SiHtml5 className="text-orange-500" /> },
-        { name: "CSS3", icon: <SiCss3 className="text-blue-600" /> },
-      ],
-      gradient: "from-cyan-700 to-blue-400",
-      bgGradient: "from-blue-100 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20",
-    },
-    {
       icon: <Palette size={32} />,
       title: "Desain",
-      tools: [
-        { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
-        { name: "Canva", icon: <SiCanva className="text-blue-500" /> },
-      ],
-      gradient: "from-green-600 to-blue-400",
-      bgGradient: "from-green-100 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20",
+      tools: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "Canva", "Sketch"],
+      gradient: "from-pink-500 to-rose-500",
+      bgGradient: "from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20",
     },
     {
-      icon: <Server size={32} className="p-1" />,
+      icon: <Code size={32} />,
+      title: "Frontend",
+      tools: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+      gradient: "from-blue-500 to-cyan-500",
+      bgGradient: "from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
+    },
+    {
+      icon: <Smartphone size={32} />,
+      title: "Mobile",
+      tools: ["React Native", "Flutter", "Expo", "Android Studio", "Xcode", "Firebase"],
+      gradient: "from-green-500 to-emerald-500",
+      bgGradient: "from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
+    },
+    {
+      icon: <Server size={32} />,
       title: "Backend",
-      tools: [
-        { name: "Node.js", icon: <SiNodedotjs className="text-green-600" /> },
-        { name: "Supabase", icon: <SiSupabase className="text-emerald-500" /> },
-        { name: "Vercel", icon: <SiVercel className="text-black dark:text-white" /> },
-      ],
-      gradient: "from-black to-blue-400",
-      bgGradient: "from-gray-100 to-blue-100 dark:from-pink-900/20 dark:to-orange-900/20",
+      tools: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Supabase", "Vercel"],
+      gradient: "from-purple-500 to-violet-500",
+      bgGradient: "from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20",
     },
   ]
 
@@ -80,38 +60,32 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.title}
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              whileHover={{ y: -8, scale: 1.01 }}
-              className={`rounded-3xl p-8 overflow-hidden bg-gradient-to-br ${skill.bgGradient} border border-gray-100 dark:border-gray-800 shadow-lg hover:shadow-xl backdrop-blur-md transition-all duration-300`}
-
-//bg-gradient-to-br rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800
+              whileHover={{ y: -10, scale: 1.02 }}
+              className={`bg-gradient-to-br ${skill.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800`}
             >
-              <div className="flex items-center mb-6">
-                <div
-                  className={`w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br ${skill.gradient} text-white shadow-lg`}
-                >
-                  {skill.icon}
-                </div>
-                <h3 className="ml-4 text-2xl font-bold text-gray-900 dark:text-white">{skill.title}</h3>
+              <div
+                className={`w-16 h-16 bg-gradient-to-r ${skill.gradient} rounded-2xl flex items-center justify-center text-white mb-6`}
+              >
+                {skill.icon}
               </div>
-
-              <div className="flex flex-wrap gap-3 mt-4">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">{skill.title}</h3>
+              <div className="space-y-2">
                 {skill.tools.map((tool, toolIndex) => (
                   <motion.div
-                    key={tool.name}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    key={tool}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.5, delay: index * 0.1 + toolIndex * 0.05 }}
-                    className="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm font-medium"
+                    className="inline-block bg-white/50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2 backdrop-blur-sm"
                   >
-                    {tool.icon}
-                    {tool.name}
+                    {tool}
                   </motion.div>
                 ))}
               </div>
