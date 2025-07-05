@@ -12,26 +12,35 @@ export default function Certificates() {
 
   const certificates = [
     {
-      title: "Sertifikat Belajar Dasar Pemrograman Web – Dicoding",
+      title: "React Developer Certification",
       issuer: "Meta (Facebook)",
       description:
-        "Diselesaikan pada 14 Oktober 2024, sertifikat ini membuktikan penguasaan dasar HTML, CSS, dan JavaScript untuk membangun website statis dan dinamis secara efisien.",
+        "Comprehensive certification covering React fundamentals, hooks, state management, dan modern development practices.",
       date: "2024",
       link: "#",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
     },
     {
-      title: " Sertifikat Magang Desain Grafis – KOPMA Universitas Siliwangi",
+      title: "UI/UX Design Professional",
       issuer: "Google",
       description:
-        "Selama 3 bulan magang part-time, saya bertanggung jawab membuat desain konten media sosial yang mendukung branding organisasi koperasi mahasiswa.",
+        "Professional certificate in user experience design covering research, wireframing, prototyping, dan usability testing.",
       date: "2024",
       link: "#",
       gradient: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20",
     },
-   
+    {
+      title: "Full Stack Web Development",
+      issuer: "freeCodeCamp",
+      description:
+        "Complete full-stack development certification including frontend, backend, databases, dan deployment strategies.",
+      date: "2023",
+      link: "#",
+      gradient: "from-green-500 to-emerald-500",
+      bgGradient: "from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
+    },
   ]
 
   return (

@@ -37,16 +37,16 @@ export default function Contact() {
     {
       name: "Email",
       icon: <Mail size={24} />,
-      href: "mailto:rfl.yfa@gmail.com",
+      href: "mailto:rafly@example.com",
       color: "hover:text-red-500",
-      description: "rfl.yfa@gmail.com",
+      description: "rafly@example.com",
     },
     {
       name: "LinkedIn",
       icon: <Linkedin size={24} />,
       href: "https://linkedin.com/in/rafly-fa",
       color: "hover:text-blue-600",
-      description: "linkedin.com/in/Rafly-Fahusnul-Akbar",
+      description: "linkedin.com/in/rafly-fa",
     },
     {
       name: "GitHub",
@@ -149,6 +149,7 @@ export default function Contact() {
                   >
                     <option value="">Pilih jenis proyek</option>
                     <option value="website">Website Development</option>
+                    <option value="mobile">Mobile App Development</option>
                     <option value="uiux">UI/UX Design</option>
                     <option value="ecommerce">E-Commerce Solution</option>
                     <option value="consultation">Konsultasi Teknis</option>
