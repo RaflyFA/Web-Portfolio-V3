@@ -53,7 +53,7 @@ export default function Footer() {
           </div>
 
           <div className="text-sm text-gray-500 dark:text-gray-500">
-            <p>Siap membantu mewujudkan visi digital Anda</p>
+            <p>Siap mewujudkan keinginan Anda</p>
           </div>
         </motion.div>
       </div>

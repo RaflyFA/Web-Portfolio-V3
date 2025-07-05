@@ -87,7 +87,7 @@ export default function Contact() {
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Kirim Pesan</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Ceritakan tentang proyek Anda dan mari kita diskusikan lebih lanjut lagi
+                Ceritakan tentang proyek Anda dan mari kita diskusikan lebih lanjut
               </p>
             </div>
 
