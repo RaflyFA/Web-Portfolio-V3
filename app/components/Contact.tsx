@@ -53,7 +53,7 @@ export default function Contact() {
       icon: <Github size={24} />,
       href: "https://github.com/rafly-fa",
       color: "hover:text-gray-900 dark:hover:text-white",
-      description: "github.com/rafly-fa",
+      description: "github.com/rafly-fa", 
     },
   ]
 
@@ -87,7 +87,7 @@ export default function Contact() {
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Kirim Pesan</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Ceritakan tentang proyek Anda dan mari kita diskusikan lebih lanjut
+                Ceritakan tentang proyek Anda dan mari kita diskusikan lebih lanjut lagi
               </p>
             </div>
 
