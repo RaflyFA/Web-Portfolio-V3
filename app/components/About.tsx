@@ -36,21 +36,15 @@ export default function About() {
         >
           <div className="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
             <p>
-              Halo! Saya <span className="font-semibold text-purple-600 dark:text-purple-400">Rafly FA</span>, seorang
-              Web Developer dan UI/UX Designer yang passionate dalam menciptakan pengalaman digital yang bermakna dan
-              fungsional.
+              Halo! Saya <span className="font-semibold text-purple-600 dark:text-purple-400">Rafly Fahusnul Akbar</span>, Saya adalah mahasiswa S1 Sistem Informasi di Universitas Siliwangi, saat ini sedang menempuh semester ketiga. Ketertarikan saya terhadap dunia teknologi, khususnya pengembangan web, tumbuh seiring dengan pengalaman yang saya bangun melalui berbagai proyek pribadi. Sejauh ini, saya telah menyelesaikan banyak proyek web dengan pendekatan modern menggunakan React, Next.js, Tailwind CSS, dan Bootstrap.
             </p>
 
             <p>
-              Perjalanan saya dimulai dari ketertarikan mendalam terhadap teknologi dan desain. Saya percaya bahwa
-              kombinasi antara kode yang bersih dan desain yang intuitif dapat menciptakan solusi digital yang tidak
-              hanya indah dipandang, tetapi juga mudah digunakan.
+              Saya juga memiliki minat yang cukup besar dalam bidang UI/UX karena saya percaya bahwa desain yang baik sama pentingnya dengan logika program. Kombinasi keduanya menciptakan produk digital yang tidak hanya berfungsi dengan baik, tapi juga menyenangkan digunakan. 
             </p>
 
             <p>
-              Dengan keahlian dalam pengembangan frontend modern dan pemahaman mendalam tentang prinsip-prinsip UI/UX,
-              saya siap membantu mewujudkan visi digital Anda. Setiap proyek adalah kesempatan untuk belajar,
-              berkembang, dan menciptakan sesuatu yang berdampak positif.
+              Meski belum memiliki pengalaman profesional di organisasi atau freelance, saya terus mengembangkan kemampuan secara mandiri dan telah memperoleh sertifikat resmi Web Development dari Dicoding sebagai langkah awal membangun kredibilitas di industri. Ke depannya, saya ingin bekerja secara remote dan menjadi freelance developer yang bisa berkontribusi di berbagai proyek digital, baik lokal maupun internasional.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
@@ -65,7 +59,7 @@ export default function About() {
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Passion</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Mencintai setiap detail dalam proses kreatif dan pengembangan
+                  Antusias menciptakan pengalaman web yang bermakna dan berdampak.
                 </p>
               </motion.div>
 
@@ -80,7 +74,7 @@ export default function About() {
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Inovasi</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Selalu mencari solusi kreatif dan teknologi terdepan
+                  Selalu eksplorasi pendekatan baru dalam desain dan pengembangan web
                 </p>
               </motion.div>
 
@@ -95,7 +89,7 @@ export default function About() {
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Fokus</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Berkomitmen memberikan hasil terbaik untuk setiap proyek
+                  Konsisten mengutamakan kualitas, detail, dan kepuasan pengguna.
                 </p>
               </motion.div>
             </div>
@@ -103,9 +97,7 @@ export default function About() {
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl p-6 mt-8">
               <h3 className="font-semibold text-xl mb-3 text-purple-700 dark:text-purple-300">Tujuan Saya</h3>
               <p className="text-gray-700 dark:text-gray-300">
-                Menjadi partner terpercaya dalam transformasi digital dengan menghadirkan solusi yang inovatif,
-                user-friendly, dan berkualitas tinggi. Saya berkomitmen untuk terus belajar dan mengikuti perkembangan
-                teknologi terkini.
+                Menjadi web developer yang adaptif, kreatif, dan profesional dengan kontribusi nyata dalam membangun produk digital berkualitas tinggi. Siap bekerja secara fleksibel, remote, dan terus berkembang mengikuti teknologi terbaru.
               </p>
             </div>
           </div>

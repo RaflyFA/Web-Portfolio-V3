@@ -1,116 +1,72 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, Sparkles, Code, Palette } from "lucide-react"
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, Code, Palette } from "lucide-react";
+import Image from "next/image"
 
 export default function Hero() {
   const scrollToProjects = () => {
-    const element = document.querySelector("#projects")
+    const element = document.querySelector("#projects");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   const scrollToContact = () => {
-    const element = document.querySelector("#contact")
+    const element = document.querySelector("#contact");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 px-6 sm:px-10 lg:px-16"
+    >
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full opacity-20 blur-xl"
         />
         <motion.div
-          animate={{
-            x: [0, -150, 0],
-            y: [0, 100, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          animate={{ x: [0, -150, 0], y: [0, 100, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full opacity-20 blur-xl"
         />
         <motion.div
-          animate={{
-            x: [0, 80, 0],
-            y: [0, -80, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          animate={{ x: [0, 80, 0], y: [0, -80, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-15 blur-lg"
         />
-
-        {/* Floating Icons */}
         <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 10, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
+          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 left-1/4 text-purple-300 dark:text-purple-600 opacity-30"
         >
           <Code size={48} />
         </motion.div>
         <motion.div
-          animate={{
-            y: [0, 20, 0],
-            rotate: [0, -10, 0],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
+          animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-1/4 right-1/3 text-pink-300 dark:text-pink-600 opacity-30"
         >
           <Palette size={40} />
         </motion.div>
         <motion.div
-          animate={{
-            y: [0, -15, 0],
-            x: [0, 10, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
+          animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/3 right-1/4 text-blue-300 dark:text-blue-600 opacity-30"
         >
           <Sparkles size={36} />
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-8"
-        >
+      <div className="relative z-10 max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-12">
+        {/* Kiri: Konten */}
+        <div className="text-center md:text-left flex-1 space-y-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -145,17 +101,16 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl leading-relaxed"
           >
-            Menciptakan pengalaman digital yang menarik dan fungsional dengan pendekatan yang berpusat pada pengguna.
-            Siap membantu mewujudkan visi digital Anda menjadi kenyataan.
+            Membuat website yang efisien dan adaptif menggunakan React dan Next.js. Fokus pada performa, struktur kode bersih, dan pengalaman pengguna yang optimal. Siap mengembangkan solusi digital yang scalable dan maintainable sesuai kebutuhan proyek.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -164,7 +119,10 @@ export default function Hero() {
               className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
             >
               <span>Lihat Karya Saya</span>
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-200" />
+              <ArrowRight
+                size={20}
+                className="group-hover:translate-x-1 transition-transform duration-200"
+              />
             </motion.button>
 
             <motion.button
@@ -176,8 +134,17 @@ export default function Hero() {
               <span>Hubungi Saya</span>
             </motion.button>
           </motion.div>
-        </motion.div>
+        </div>
+
+        {/* Kanan: Placeholder Gambar */}
+        <Image
+          src="/profile2.jpg"
+          alt="Profile"
+          width={400}
+          height={200}
+          className="rounded-xl shadow-2xl object-cover"
+        />
       </div>
     </section>
-  )
+  );
 }
