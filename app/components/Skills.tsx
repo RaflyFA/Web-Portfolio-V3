@@ -1,45 +1,76 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { Palette, Code, Smartphone, Server } from "lucide-react"
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Palette, Code, Server, Users } from "lucide-react";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiFigma,
+  SiCanva,
+  SiNodedotjs,
+  SiSupabase,
+  SiVercel,
+  SiGit,
+  SiGithub,
+  SiGitlab,
+} from "react-icons/si";
 
 export default function Skills() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  })
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const skills = [
     {
-      icon: <Palette size={32} />,
-      title: "Desain",
-      tools: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "Canva", "Sketch"],
-      gradient: "from-pink-500 to-rose-500",
-      bgGradient: "from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20",
-    },
-    {
       icon: <Code size={32} />,
       title: "Frontend",
-      tools: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
-      gradient: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
+      tools: [
+        { name: "React.js", icon: <SiReact className="text-cyan-500" /> },
+        { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" /> },
+        { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
+        { name: "Tailwind CSS", icon: <SiTailwindcss className="text-sky-400" /> },
+        { name: "HTML5", icon: <SiHtml5 className="text-orange-500" /> },
+        { name: "CSS3", icon: <SiCss3 className="text-blue-600" /> },
+      ],
+      gradient: "from-blue-500 to-gray-500",
+      bgGradient: "from-blue-200 to-purple-100 dark:from-blue-900/20 dark:to-gray-900/20",
     },
     {
-      icon: <Smartphone size={32} />,
-      title: "Mobile",
-      tools: ["React Native", "Flutter", "Expo", "Android Studio", "Xcode", "Firebase"],
-      gradient: "from-green-500 to-emerald-500",
-      bgGradient: "from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
+      icon: <Palette size={32} />,
+      title: "Desain",
+      tools: [
+        { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
+        { name: "Canva", icon: <SiCanva className="text-blue-500" /> },
+      ],
+      gradient: "from-green-400 to-emerald-500 dark:from-lime-600 dark:to-green-700",
+      bgGradient: "from-green-200 to-violet-50 dark:from-green-900/20 dark:to-gray-900/20",
     },
     {
       icon: <Server size={32} />,
       title: "Backend",
-      tools: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Supabase", "Vercel"],
-      gradient: "from-purple-500 to-violet-500",
-      bgGradient: "from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20",
+      tools: [
+        { name: "Node.js", icon: <SiNodedotjs className="text-green-600" /> },
+        { name: "Supabase", icon: <SiSupabase className="text-emerald-500" /> },
+        { name: "Vercel", icon: <SiVercel className="text-black dark:text-white" /> },
+      ],
+      gradient: "from-gray-400 to-gray-600 dark:from-gray-800 dark:to-gray-700",
+      bgGradient: "from-gray-100 to-gray-300 dark:from-gray-500/20 dark:to-gray-900/20",
     },
-  ]
+    {
+      icon: <Users size={32} />,
+      title: "Collaboration",
+      tools: [
+        { name: "Git", icon: <SiGit className="text-orange-600" /> },
+        { name: "GitHub", icon: <SiGithub className="text-black dark:text-white" /> },
+        { name: "GitLab", icon: <SiGitlab className="text-orange-500" /> },
+      ],
+      gradient: "from-yellow-400 to-red-400 dark:from-yellow-700 dark:to-red-600",
+      bgGradient: "from-yellow-100 to-gray-100 dark:from-yellow-900/20 dark:to-gray-900/20",
+    },
+  ];
 
   return (
     <section id="skills" className="py-20">
@@ -56,7 +87,7 @@ export default function Skills() {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
           <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-            Teknologi dan tools yang saya kuasai untuk menciptakan solusi digital yang komprehensif
+            Teknologi dan tools yang saya kuasai untuk menciptakan website yang  keren dan userfriendly
           </p>
         </motion.div>
 
@@ -76,16 +107,22 @@ export default function Skills() {
                 {skill.icon}
               </div>
               <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">{skill.title}</h3>
-              <div className="space-y-2">
+            
+
+              <div className="flex flex-wrap gap-3 mt-4">
                 {skill.tools.map((tool, toolIndex) => (
                   <motion.div
-                    key={tool}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, delay: index * 0.1 + toolIndex * 0.05 }}
-                    className="inline-block bg-white/50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium mr-2 mb-2 backdrop-blur-sm"
+                    key={tool.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.1 + toolIndex * 0.05,
+                    }}
+                    className="flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-sm font-medium"
                   >
-                    {tool}
+                    {tool.icon}
+                    {tool.name}
                   </motion.div>
                 ))}
               </div>
@@ -94,5 +131,5 @@ export default function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }

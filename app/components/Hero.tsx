@@ -59,7 +59,7 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-12">
+        <div className="flex flex-col md:flex-row items-center gap-12">
           {/* Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -71,10 +71,10 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full text-sm font-medium text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-700"
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 rounded-full text-xs font-medium text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-700"
             >
               <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-              Tersedia untuk proyek baru
+              Siap untuk proyek baru
             </motion.div>
 
             <motion.h1
@@ -103,8 +103,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto md:mx-0 leading-relaxed"
             >
-              Menciptakan pengalaman digital yang menarik dan fungsional dengan pendekatan yang berpusat pada pengguna.
-              Siap membantu mewujudkan visi digital Anda menjadi kenyataan.
+              Membangun Website yang efisien menggunakan React dan Next.js. Fokus pada performa dan struktur kode yang bersih, Siap mengembangkan website yang scalable dan maintainable sesuai kebutuhan.
             </motion.p>
 
             <motion.div

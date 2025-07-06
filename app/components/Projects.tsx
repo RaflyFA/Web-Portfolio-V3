@@ -12,40 +12,52 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "E-Commerce Dashboard",
+      title: "E-Commerce Thinksale",
       category: "Web Application",
       icon: <Globe size={24} />,
       description:
-        "Dashboard admin untuk mengelola toko online dengan fitur analytics, inventory management, dan order tracking yang komprehensif.",
-      tech: ["React.js", "Next.js", "Tailwind CSS", "Chart.js", "Supabase"],
+        "Website e-commerce yang dibangun dengan Next.js, Tailwind CSS, dan Supabase. Saya bertanggung jawab di sisi frontend, berkolaborasi dengan rekan saya yang mengerjakan backend. Website ini sudah digunakan untuk transaksi nyata dan berhasil menghasilkan beberapa closing.",
+      tech: ["React.js", "Next.js", "Typescript", "Tailwind CSS", "Figma", "Supabase", "Vercel"],
       github: "#",
       live: "#",
       gradient: "from-blue-500 to-purple-500",
       bgGradient: "from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20",
     },
     {
-      title: "Task Management App",
-      category: "Mobile App",
-      icon: <Smartphone size={24} />,
+      title: "Landing-Page VictoryJoki",
+      category: "Web Application",
+      icon: <Globe size={24} />,
       description:
-        "Aplikasi mobile untuk manajemen tugas dengan fitur kolaborasi tim, deadline tracking, dan notifikasi real-time.",
-      tech: ["React Native", "Expo", "Firebase", "Redux", "TypeScript"],
+        "Landing page untuk jasa joki game, dirancang untuk menampilkan layanan dengan tampilan profesional. Masih dalam tahap pengembangan sebagai prototype awal, fokusnya adalah membangun UI yang dapat dikembangkan menjadi sistem penuh di masa mendatang.",
+      tech: ["React.js", "Next.js", "Typescript", "Tailwind CSS",  "Figma", "Vercel"],
       github: "#",
       live: "#",
-      gradient: "from-green-500 to-teal-500",
+      gradient: "from-blue-500 to-purple-500",
       bgGradient: "from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20",
     },
     {
-      title: "Creative Portfolio",
+      title: "Landing-Page KedaiKopi",
+      category: "Web Application",
+      icon: <Globe size={24} />,
+      description:
+        "Website sederhana untuk promosi kedai kopi lokal. Fokus pada tampilan yang bersih dan user-friendly, cocok untuk UMKM yang ingin membangun identitas digital.",
+      tech: ["HTML5", "CSS3", "Javascript"],
+      github: "#",
+      live: "#",
+      gradient: "from-blue-500 to-purple-500",
+      bgGradient: "from-pink-50 to-orange-50 dark:from-pink-900/20 dark:to-orange-900/20",
+    },
+    {
+      title: "E-Commerce Thinksale",
       category: "UI/UX Design",
       icon: <Palette size={24} />,
       description:
-        "Desain dan pengembangan website portfolio untuk creative agency dengan fokus pada visual storytelling yang menarik.",
-      tech: ["Figma", "Next.js", "Framer Motion", "Tailwind CSS", "Vercel"],
+        "Website e-commerce yang dibangun dengan Next.js, Tailwind CSS, dan Supabase. Saya bertanggung jawab di sisi frontend, berkolaborasi dengan rekan saya yang mengerjakan backend. Website ini sudah digunakan untuk transaksi nyata dan berhasil menghasilkan beberapa closing.",
+      tech: ["React.js", "Next.js", "Typescript", "Tailwind CSS", "Figma", "Supabase", "Vercel"],
       github: "#",
       live: "#",
       gradient: "from-pink-500 to-orange-500",
-      bgGradient: "from-pink-50 to-orange-50 dark:from-pink-900/20 dark:to-orange-900/20",
+      bgGradient: "from-pink-50 to-orange-50 dark:from-pink-900/20 dark:to-orange-900/20"
     },
   ]
 
@@ -60,11 +72,11 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Proyek</span>
+            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Project</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
           <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-            Beberapa proyek yang telah saya kerjakan untuk mengasah kemampuan dan eksplorasi teknologi
+            Beberapa proyek yang telah saya kerjakan untuk mengasah kemampuan dan eksplorasi lebih
           </p>
         </motion.div>
 

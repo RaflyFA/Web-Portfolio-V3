@@ -37,23 +37,23 @@ export default function Contact() {
     {
       name: "Email",
       icon: <Mail size={24} />,
-      href: "mailto:rafly@example.com",
+      href: "mailto:rfl.yfa@gmail.com",
       color: "hover:text-red-500",
-      description: "rafly@example.com",
+      description: "rfl.yfa@gmail.com",
     },
     {
       name: "LinkedIn",
       icon: <Linkedin size={24} />,
-      href: "https://linkedin.com/in/rafly-fa",
+      href: "https://www.linkedin.com/in/rafly-fahusnul-akbar/",
       color: "hover:text-blue-600",
-      description: "linkedin.com/in/rafly-fa",
+      description: "linkedin.com/in/rafly-fahusnul-akbar/",
     },
     {
       name: "GitHub",
       icon: <Github size={24} />,
-      href: "https://github.com/rafly-fa",
+      href: "https://github.com/RaflyFA",
       color: "hover:text-gray-900 dark:hover:text-white",
-      description: "github.com/rafly-fa", 
+      description: "github.com/RaflyFA", 
     },
   ]
 
@@ -72,7 +72,7 @@ export default function Contact() {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
           <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-            Mari berkolaborasi! Saya siap membantu mewujudkan proyek digital Anda
+            Tertarik bekerja sama dengan developer yang adaptif dan detail? Saya siap bantu wujudkan ide digital Anda.
           </p>
         </motion.div>
 
@@ -125,7 +125,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
-                    placeholder="email@example.com"
+                    placeholder="email@gmail.com"
                   />
                 </div>
               </div>
@@ -149,10 +149,8 @@ export default function Contact() {
                   >
                     <option value="">Pilih jenis proyek</option>
                     <option value="website">Website Development</option>
-                    <option value="mobile">Mobile App Development</option>
                     <option value="uiux">UI/UX Design</option>
                     <option value="ecommerce">E-Commerce Solution</option>
-                    <option value="consultation">Konsultasi Teknis</option>
                     <option value="other">Lainnya</option>
                   </select>
                 </div>
@@ -226,11 +224,11 @@ export default function Contact() {
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
               <h4 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Response Time</h4>
               <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Saya biasanya merespons dalam waktu 24 jam. Untuk proyek urgent, silakan mention di subject email.
+                Saya biasanya merespons dalam waktu 24 jam. Untuk proyek urgent, silakan chat Whastapp atau Instagram saya.
               </p>
               <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium">Biasanya online 9 AM - 6 PM WIB</span>
+                <span className="text-sm font-medium">Biasanya online 04:00 - 23:00 WIB</span>
               </div>
             </div>
           </motion.div>

@@ -24,8 +24,9 @@ export default function Footer() {
             <motion.div
               whileHover={{ scale: 1.1, rotate: 10 }}
               className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white"
-            >
+            > 
               <Code size={24} />
+              
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.1, rotate: -10 }}
@@ -36,14 +37,14 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-400 mb-4">
-            <span>© 2024 Portfolio Rafly FA. Dibuat dengan</span>
+            <span>© 2025 Portfolio Rafly FA. Dibuat dengan</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, repeatDelay: 2 }}
             >
               <Heart size={16} className="text-red-500" />
             </motion.div>
-            <span>dan banyak</span>
+            <span>dan sedikit</span>
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatDelay: 1 }}
@@ -53,7 +54,7 @@ export default function Footer() {
           </div>
 
           <div className="text-sm text-gray-500 dark:text-gray-500">
-            <p>Siap mewujudkan keinginan Anda</p>
+            <p>Siap mewujudkan keinginan website Anda</p>
           </div>
         </motion.div>
       </div>
