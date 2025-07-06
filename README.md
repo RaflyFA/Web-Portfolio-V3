@@ -7,24 +7,124 @@
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+Portfolio website untuk Rafly FA - Web Developer & UI/UX Designer. Website ini dibangun menggunakan Next.js 15, React 19, TypeScript, dan Tailwind CSS dengan animasi Framer Motion.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI
+- **Animations**: Framer Motion
+- **Icons**: Lucide React & React Icons
+- **Package Manager**: npm
+
+## Getting Started
+
+### Prerequisites
+
+Pastikan Anda memiliki Node.js versi 18 atau lebih baru dan npm versi 8 atau lebih baru.
+
+\`\`\`bash
+node --version  # Should be >= 18.0.0
+npm --version   # Should be >= 8.0.0
+\`\`\`
+
+### Installation
+
+1. Clone repository ini:
+\`\`\`bash
+git clone <repository-url>
+cd rafly-portfolio
+\`\`\`
+
+2. Install dependencies:
+\`\`\`bash
+npm install
+\`\`\`
+
+3. Jalankan development server:
+\`\`\`bash
+npm run dev
+\`\`\`
+
+4. Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
+
+## Available Scripts
+
+- `npm run dev` - Menjalankan development server
+- `npm run build` - Build aplikasi untuk production
+- `npm run start` - Menjalankan production server
+- `npm run lint` - Menjalankan ESLint untuk code linting
+- `npm run clean` - Membersihkan cache dan dependencies
+- `npm run reinstall` - Clean install dependencies
+
+## Project Structure
+
+\`\`\`
+rafly-portfolio/
+├── app/                    # Next.js App Router
+│   ├── components/         # React components
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # Reusable UI components
+├── hooks/                 # Custom React hooks
+├── lib/                   # Utility functions
+├── public/                # Static assets
+├── styles/                # Additional styles
+└── ...config files
+\`\`\`
+
+## Features
+
+- ✅ Responsive design untuk semua device
+- ✅ Dark/Light mode toggle
+- ✅ Smooth scrolling navigation
+- ✅ Animated components dengan Framer Motion
+- ✅ Contact form dengan WhatsApp integration
+- ✅ Project showcase dengan tech stack icons
+- ✅ Certificate gallery
+- ✅ SEO optimized
+- ✅ TypeScript untuk type safety
+- ✅ Modern UI dengan Tailwind CSS
 
 ## Deployment
 
-Your project is live at:
+Project ini dapat di-deploy ke berbagai platform:
 
-**[https://vercel.com/rflyfas-projects/v0-rafly-fa-portfolio](https://vercel.com/rflyfas-projects/v0-rafly-fa-portfolio)**
+### Vercel (Recommended)
+\`\`\`bash
+npm run build
+# Deploy ke Vercel
+\`\`\`
 
-## Build your app
+### Netlify
+\`\`\`bash
+npm run build
+# Upload folder 'out' ke Netlify
+\`\`\`
 
-Continue building your app on:
+### Manual Deployment
+\`\`\`bash
+npm run build
+npm run start
+\`\`\`
 
-**[https://v0.dev/chat/projects/LvBFhxmipht](https://v0.dev/chat/projects/LvBFhxmipht)**
+## Contributing
 
-## How It Works
+1. Fork repository ini
+2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Contact
+
+Rafly FA - [rfl.yfa@gmail.com](mailto:rfl.yfa@gmail.com)
+
+Project Link: [https://github.com/RaflyFA/portfolio](https://github.com/RaflyFA/portfolio)
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.

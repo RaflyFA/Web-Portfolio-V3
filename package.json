@@ -4,9 +4,23 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "clean": "rm -rf .next node_modules package-lock.json",
     "dev": "next dev",
     "lint": "next lint",
+    "reinstall": "npm run clean && npm install",
     "start": "next start"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
@@ -55,6 +69,7 @@
     "react-intersection-observer": "latest",
     "react-resizable-panels": "latest",
     "recharts": "latest",
+    "shadcn": "latest",
     "sonner": "latest",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
@@ -69,5 +84,9 @@
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }
