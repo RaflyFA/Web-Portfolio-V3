@@ -106,7 +106,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto md:mx-0 leading-relaxed"
             >
-              Membangun Website yang efisien menggunakan React dan Next.js. Fokus pada performa dan struktur kode yang
+              Membangun Website yang efisien menggunakan Next.js. Fokus pada performa dan struktur kode yang
               rapih dan bersih, Siap mengembangkan website yang keren dan kompleks sesuai kebutuhan.
             </motion.p>
 
