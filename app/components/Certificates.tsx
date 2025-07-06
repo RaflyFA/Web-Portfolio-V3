@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Calendar } from "lucide-react"
 import Image from "next/image"
+import { Sparkles, Code, Palette } from "lucide-react"
+
 
 export default function Certificates() {
   const [ref, inView] = useInView({
@@ -20,7 +22,7 @@ export default function Certificates() {
       date: "2024",
       image: "/sertifikat dicoding.jpg",
       gradient: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-100 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
+      bgGradient: "from-blue-100 to-cyan-50 dark:from-blue-900/90 dark:to-cyan-900/90",
     },
     {
       title: "Magang Desain Grafis",
@@ -30,13 +32,56 @@ export default function Certificates() {
       date: "2024",
       image: "/Asisten Desain Grafis.jpg",
       gradient: "from-gray-500 to-pink-500",
-      bgGradient: "from-gray-100 to-green-100 dark:from-purple-900/20 dark:to-pink-900/20",
+      bgGradient: "from-gray-100 to-green-100 dark:from-green-900/90 dark:to-gray-900/90",
     },
   ]
 
   return (
-    <section id="certificates" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certificates" className="py-20 items-center justify-center relative overflow-hidden">
+      {/* Background Decorations */}
+            <div className="absolute inset-0 overflow-hidden">
+              <motion.div
+                animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
+                transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full opacity-20 blur-xl"
+              />
+              <motion.div
+                animate={{ x: [0, -150, 0], y: [0, 100, 0] }}
+                transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full opacity-20 blur-xl"
+              />
+              <motion.div
+                animate={{ x: [0, 80, 0], y: [0, -80, 0] }}
+                transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                className="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-15 blur-lg"
+              />
+              <motion.div
+                animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
+                transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                className="absolute top-1/4 left-1/4 text-purple-300 dark:text-purple-600 opacity-30"
+              >
+                <Code size={48} />
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
+                transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                className="absolute bottom-1/2 right-60 text-pink-300 dark:text-pink-600 opacity-30"
+              >
+                <Palette size={40} />
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+                transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+                className="absolute top-1/3 right-1/4 text-blue-300 dark:text-blue-600 opacity-30"
+              >
+                <Sparkles size={36} />
+              </motion.div>
+            </div>
+      
+
+
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -55,7 +100,7 @@ export default function Certificates() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:px-32 gap-8">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.title}
@@ -75,7 +120,7 @@ export default function Certificates() {
                 </div>
 
                 {/* Certificate Image */}
-                <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
+                <div className="relative w-full h-64 mb-4 rounded-lg overflow-hidden">
                   <Image src={cert.image || "/placeholder.svg"} alt={cert.title} fill className="object-cover" />
                 </div>
 

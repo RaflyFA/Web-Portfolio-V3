@@ -17,7 +17,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
   const navItems = [
     { name: "Beranda", href: "#home" },
     { name: "Tentang", href: "#about" },
-    { name: "Keahlian", href: "#skills" },
+    { name: "Skills", href: "#skills" },
     { name: "Project", href: "#projects" },
     { name: "Sertifikat", href: "#certificates" },
     { name: "Kontak", href: "#contact" },
@@ -131,7 +131,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
             <motion.button
-              ref={navToggleBtnRef} // === REFF INI DITERAPKAN KE TOMBOL HAMBURGER ===
+              ref={navToggleBtnRef} // 
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}

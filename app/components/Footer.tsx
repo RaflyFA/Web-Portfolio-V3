@@ -3,15 +3,16 @@
 import { motion } from "framer-motion"
 import { Heart, Coffee } from "lucide-react"
 import { SiInstagram, SiLinkedin, SiGithub, SiX, SiFacebook } from "react-icons/si"
+import { Code, Sparkles, Palette } from "lucide-react"
 
 export default function Footer() {
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-    { name: "About", href: "#about" },
+    { name: "Beranda", href: "#home" },
+    { name: "Tentang", href: "#about" },
     { name: "Skills", href: "#skills" },
-    { name: "Certificates", href: "#certificates" },
+    { name: "Project", href: "#projects" },
+    { name: "Sertifikat", href: "#certificates" },
+    { name: "Kontak", href: "#contact" },
   ]
 
   const socialLinks = [
@@ -47,8 +48,21 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
+{/* Background Decorations */}
+      <div className="absolute inset-0 overflow-hidden">
+        
+        <motion.div
+          animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
+          transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+          className="absolute top-1/4 right-40 text-blue-300 dark:text-blue-600 opacity-30"
+        >
+          <Sparkles size={36} />
+        </motion.div>
+      </div>
+
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           {/* Main Footer Content */}
           <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start space-y-8 lg:space-y-0 mb-8">
@@ -99,7 +113,7 @@ export default function Footer() {
 
           {/* Bottom Section - Copyright */}
           <div className="border-t border-gray-200 dark:border-gray-700 pt-8 text-center space-y-2">
-            <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-400 text-xs">
+            <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-400 text-xs lg:text-lg">
               <span>© 2025 Portfolio Rafly FA. Dibuat dengan</span>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
@@ -115,7 +129,7 @@ export default function Footer() {
                 <Coffee size={16} className="text-amber-600 w-3" />
               </motion.div>
             </div>
-            <div className="text-sm text-gray-500 dark:text-gray-500">
+            <div className="text-sm lg:text-lg text-gray-500 dark:text-gray-500">
               <p>Siap mewujudkan website impian Anda</p>
             </div>
           </div>

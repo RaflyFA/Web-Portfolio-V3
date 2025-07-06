@@ -14,67 +14,10 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 lex items-center justify-center relative overflow-hidden"
+      className="py-20 bg-gray-50 dark:bg-gray-800/50"
     >
       {" "}
-      {/* Background Decorations */}
-      <div className="absolute inset-0 overflow-hidden z-10">
-       
-        <motion.div
-          animate={{ x: [0, -150, 0], y: [0, 100, 0] }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full opacity-20 blur-xl"
-        />
-        <motion.div
-          animate={{ x: [0, 80, 0], y: [0, -80, 0] }}
-          transition={{
-            duration: 15,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-15 blur-lg"
-        />
-        <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 left-1/4 text-purple-300 dark:text-purple-600 opacity-30"
-        >
-          <Code size={48} />
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
-          transition={{
-            duration: 5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/4 right-1/3 text-pink-300 dark:text-pink-600 opacity-30"
-        >
-          <Palette size={40} />
-        </motion.div>
-        <motion.div
-          animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
-          transition={{
-            duration: 3,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/3 right-1/2 text-blue-300 dark:text-blue-600 opacity-30"
-        >
-          <Sparkles size={36} />
-        </motion.div>
-      </div>
-
-
-      <div className="relative z-20">
+      
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             ref={ref}
@@ -95,16 +38,16 @@ export default function About() {
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-8 sm:p-12 shadow-xl"
+            className="bg-white dark:bg-gray-900 rounded-2xl p-8 sm:p-12 shadow-xl "
           >
-            <div className="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            <div className="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300 ">
               <p>
                 Halo! Saya{" "}
                 <span className="font-semibold text-purple-600 dark:text-purple-400">
                   Rafly FA
                 </span>
                 , Saya adalah mahasiswa S1 Sistem Informasi di Universitas
-                Siliwangi, saat ini sedang menempuh semester ketiga.
+                Siliwangi, saat ini sedang menempuh semester 3.
                 Ketertarikan saya terhadap dunia teknologi, khususnya
                 pengembangan web, tumbuh seiring dengan pengalaman yang saya
                 bangun melalui berbagai proyek pribadi. Sejauh ini, saya telah
@@ -200,7 +143,6 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-      </div>
     </section>
   );
 }
