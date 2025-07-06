@@ -13,24 +13,24 @@ export default function Certificates() {
 
   const certificates = [
     {
-      title: "Sertifikat Belajar Dasar Pemrograman Web",
+      title: "Belajar Dasar Pemrograman Web",
       issuer: "DiCoding",
       description:
         "Diselesaikan pada 14 Oktober 2024, sertifikat ini membuktikan penguasaan dasar HTML, CSS, dan JavaScript untuk membangun website statis dan dinamis secara efisien.",
       date: "2024",
-      image: "/placeholder.jpg",
+      image: "/sertifikat dicoding.jpg",
       gradient: "from-blue-500 to-cyan-500",
-      bgGradient: "from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
+      bgGradient: "from-blue-100 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
     },
     {
-      title: "Sertifikat Magang Desain Grafis",
+      title: "Magang Desain Grafis",
       issuer: "KOPMA Universitas Siliwangi",
       description:
         "Selama 3 bulan magang part-time, saya bertanggung jawab membuat desain konten media sosial yang mendukung branding organisasi koperasi mahasiswa.",
       date: "2024",
-      image: "/placeholder.jpg",
-      gradient: "from-purple-500 to-pink-500",
-      bgGradient: "from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20",
+      image: "/Asisten Desain Grafis.jpg",
+      gradient: "from-gray-500 to-pink-500",
+      bgGradient: "from-gray-100 to-green-100 dark:from-purple-900/20 dark:to-pink-900/20",
     },
   ]
 
@@ -46,7 +46,7 @@ export default function Certificates() {
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Sertifikat
+              Sertifikasi
             </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>

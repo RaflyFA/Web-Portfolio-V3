@@ -18,7 +18,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
     { name: "Beranda", href: "#home" },
     { name: "Tentang", href: "#about" },
     { name: "Keahlian", href: "#skills" },
-    { name: "Proyek", href: "#projects" },
+    { name: "Project", href: "#projects" },
     { name: "Sertifikat", href: "#certificates" },
     { name: "Kontak", href: "#contact" },
   ]
