@@ -197,7 +197,7 @@ export default function Contact() {
             <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Mari Terhubung</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                Saya selalu terbuka untuk diskusi tentang proyek baru, peluang kolaborasi, atau sekadar berbagi ide
+                Saya selalu terbuka untuk diskusi tentang project baru, kolaborasi, atau sekadar berbagi ide
                 tentang teknologi dan desain. Jangan ragu untuk menghubungi saya!
               </p>
 
@@ -224,7 +224,7 @@ export default function Contact() {
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
               <h4 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Response Time</h4>
               <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Saya biasanya merespons dalam waktu 24 jam. Untuk proyek urgent, silakan chat Whastapp atau Instagram saya.
+                Saya biasanya bisa merespons dalam waktu 24 jam. Untuk proyek yang urgent, silakan chat Whastapp atau Instagram saya.
               </p>
               <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
