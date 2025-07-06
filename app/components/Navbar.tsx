@@ -11,7 +11,8 @@ interface NavbarProps {
 
 export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const navToggleBtnRef = useRef<HTMLButtonElement>(null) // Ref untuk tombol toggle hamburger
 
   const navItems = [
     { name: "Beranda", href: "#home" },
@@ -23,33 +24,64 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
   ]
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-    setIsOpen(false)
+    // Memberikan sedikit delay untuk memastikan menu sudah menutup
+    // sebelum scroll, ini bisa membantu kompatibilitas di mobile.
+    setIsOpen(false) // Tutup menu terlebih dahulu
+    setTimeout(() => {
+      const element = document.querySelector(href)
+      if (element) {
+        // Ambil offset dari bagian atas elemen fixed/sticky (misalnya navbar itu sendiri)
+        // Jika navbar Anda fixed dengan tinggi 16 unit (h-16), offsetnya sekitar 64px
+        const navbarHeight = document.querySelector('nav')?.offsetHeight || 64; // Dapatkan tinggi navbar dinamis atau default 64px
+        const offsetPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    }, 300); // Sesuaikan delay ini jika perlu, setelah transisi menu (0.3s)
   }
 
-  // Close menu when clicking outside
+  // Close menu when clicking outside of the mobile menu itself
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      // Pastikan klik TIDAK dari dalam menu mobile ATAU dari tombol hamburger itu sendiri
+      if (
+        mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node) &&
+        navToggleBtnRef.current && !navToggleBtnRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false)
       }
     }
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside)
+      // Opsional: tambahkan event listener untuk sentuhan di perangkat mobile
+     
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside)
+      // Hapus listener touchstart juga
     }
   }, [isOpen])
 
+  // Handle body scroll locking when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // Mencegah scroll body
+    } else {
+      document.body.style.overflow = ""; // Mengizinkan scroll body kembali
+    }
+    return () => {
+      document.body.style.overflow = ""; // Bersihkan saat komponen unmount
+    };
+  }, [isOpen]);
+
+
   return (
     <motion.nav
-      ref={menuRef}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700"
@@ -81,26 +113,30 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
               whileTap={{ scale: 0.9 }}
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation Toggle (Hamburger) */}
           <div className="md:hidden flex items-center space-x-4">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
             <motion.button
+              ref={navToggleBtnRef} // === REFF INI DITERAPKAN KE TOMBOL HAMBURGER ===
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-md text-gray-700 dark:text-gray-300"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
@@ -112,9 +148,11 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={mobileMenuRef}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
             className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
           >
             <div className="px-4 py-2 space-y-1">

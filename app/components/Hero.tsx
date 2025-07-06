@@ -18,7 +18,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="flex items-center justify-center relative overflow-hidden pt-16 pb-8 px-4 sm:px-6 lg:px-8"
+      className="flex items-center justify-center relative overflow-hidden lg:min-h-screen pt-16 pb-8 px-4 sm:px-6 lg:px-8"
     >
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
@@ -107,7 +107,7 @@ export default function Hero() {
               className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto md:mx-0 leading-relaxed"
             >
               Membangun Website yang efisien menggunakan React dan Next.js. Fokus pada performa dan struktur kode yang
-              bersih, Siap mengembangkan website yang scalable dan maintainable sesuai kebutuhan.
+              bersih, Siap mengembangkan website yang keren dan kompleks sesuai kebutuhan.
             </motion.p>
 
             <motion.div

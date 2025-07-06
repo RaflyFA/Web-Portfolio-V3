@@ -1,24 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 const { fontFamily } = require("tailwindcss/defaultTheme")
-const defaultConfig = require("shadcn/ui/tailwind.config")
 
 module.exports = {
-  ...defaultConfig,
+  darkMode: "class",
   content: [
-    ...defaultConfig.content,
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    ...defaultConfig.theme,
     extend: {
-      ...defaultConfig.theme.extend,
       colors: {
-        ...defaultConfig.theme.extend.colors,
         primary: {
-          ...defaultConfig.theme.extend.colors.primary,
           50: "#f0f9ff",
           100: "#e0f2fe",
           200: "#bae6fd",
@@ -73,12 +67,9 @@ module.exports = {
       backdropBlur: {
         xs: "2px",
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
     },
   },
-  plugins: [...defaultConfig.plugins, require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+  ],
 }

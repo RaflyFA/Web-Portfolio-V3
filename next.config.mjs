@@ -15,7 +15,6 @@ const nextConfig = {
     optimizePackageImports: ['lucide-react', 'react-icons'],
   },
   // Optimize for npm
-  swcMinify: true,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
