@@ -5,7 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Mail, Linkedin, Github, Send, MessageCircle, User, Briefcase } from "lucide-react"
+import { Mail, Linkedin, Github, Send, MessageCircle, User, Briefcase, Instagram } from "lucide-react"
 
 export default function Contact() {
   const [ref, inView] = useInView({
@@ -22,8 +22,22 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
+
+    // Create WhatsApp message
+    const whatsappMessage = `Halo Rafly! 👋
+
+Saya ${formData.name} ingin berdiskusi tentang project ${formData.projectType}.
+
+📧 Email: ${formData.email}
+💼 Jenis Project: ${formData.projectType}
+
+📝 Detail Project:
+${formData.message}
+
+Terima kasih!`
+
+    const whatsappUrl = `https://wa.me/6281224086200?text=${encodeURIComponent(whatsappMessage)}`
+    window.open(whatsappUrl, "_blank")
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -53,7 +67,14 @@ export default function Contact() {
       icon: <Github size={24} />,
       href: "https://github.com/RaflyFA",
       color: "hover:text-gray-900 dark:hover:text-white",
-      description: "github.com/RaflyFA", 
+      description: "github.com/RaflyFA",
+    },
+    {
+      name: "Instagram",
+      icon: <Instagram size={24} />,
+      href: "https://instagram.com/rfl.yfa",
+      color: "hover:text-pink-500",
+      description: "instagram.com/rfl.yfa",
     },
   ]
 
@@ -148,10 +169,10 @@ export default function Contact() {
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
                   >
                     <option value="">Pilih jenis proyek</option>
-                    <option value="website">Website Development</option>
-                    <option value="uiux">UI/UX Design</option>
-                    <option value="ecommerce">E-Commerce Solution</option>
-                    <option value="other">Lainnya</option>
+                    <option value="Website Development">Website Development</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="E-Commerce Solution">E-Commerce Solution</option>
+                    <option value="Lainnya">Lainnya</option>
                   </select>
                 </div>
               </div>
@@ -197,8 +218,8 @@ export default function Contact() {
             <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Mari Terhubung</h3>
               <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                Saya selalu terbuka untuk diskusi tentang project baru, kolaborasi, atau sekadar berbagi ide
-                tentang teknologi dan desain. Jangan ragu untuk menghubungi saya!
+                Saya selalu terbuka untuk diskusi tentang project baru, kolaborasi, atau sekadar berbagi ide tentang
+                teknologi dan desain. Jangan ragu untuk menghubungi saya!
               </p>
 
               <div className="space-y-4">
@@ -224,7 +245,8 @@ export default function Contact() {
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
               <h4 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Response Time</h4>
               <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Saya biasanya bisa merespons dalam waktu 24 jam. Untuk proyek yang urgent, silakan chat Whastapp atau Instagram saya.
+                Saya biasanya bisa merespons dalam waktu 24 jam. Untuk proyek yang urgent, silakan chat Whastapp atau
+                Instagram saya.
               </p>
               <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>

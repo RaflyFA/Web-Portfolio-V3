@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Award, ExternalLink, Calendar } from "lucide-react"
+import { Calendar } from "lucide-react"
+import Image from "next/image"
 
 export default function Certificates() {
   const [ref, inView] = useInView({
@@ -12,22 +13,22 @@ export default function Certificates() {
 
   const certificates = [
     {
-      title: " Sertifikat Belajar Dasar Pemrograman Web",
+      title: "Sertifikat Belajar Dasar Pemrograman Web",
       issuer: "DiCoding",
       description:
         "Diselesaikan pada 14 Oktober 2024, sertifikat ini membuktikan penguasaan dasar HTML, CSS, dan JavaScript untuk membangun website statis dan dinamis secara efisien.",
       date: "2024",
-      link: "#",
+      image: "/placeholder.jpg",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
     },
     {
       title: "Sertifikat Magang Desain Grafis",
-      issuer: " KOPMA Universitas Siliwangi",
+      issuer: "KOPMA Universitas Siliwangi",
       description:
         "Selama 3 bulan magang part-time, saya bertanggung jawab membuat desain konten media sosial yang mendukung branding organisasi koperasi mahasiswa.",
       date: "2024",
-      link: "#",
+      image: "/placeholder.jpg",
       gradient: "from-purple-500 to-pink-500",
       bgGradient: "from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20",
     },
@@ -62,35 +63,31 @@ export default function Certificates() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               whileHover={{ y: -10 }}
-              className={`bg-gradient-to-br ${cert.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800`}
+              className={`bg-gradient-to-br ${cert.bgGradient} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800`}
             >
-              <div className="flex items-center justify-between mb-6">
-                <div
-                  className={`w-16 h-16 bg-gradient-to-r ${cert.gradient} rounded-2xl flex items-center justify-center`}
-                >
-                  <Award size={32} className="text-white" />
+              <div className="p-6">
+                {/* Date */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-1 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-800/50 px-3 py-1 rounded-full backdrop-blur-sm">
+                    <Calendar size={14} />
+                    <span>{cert.date}</span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-1 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-800/50 px-3 py-1 rounded-full backdrop-blur-sm">
-                  <Calendar size={14} />
-                  <span>{cert.date}</span>
+
+                {/* Certificate Image */}
+                <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
+                  <Image src={cert.image || "/placeholder.svg"} alt={cert.title} fill className="object-cover" />
                 </div>
+
+                {/* Certificate Title */}
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{cert.title}</h3>
+
+                {/* Issuer */}
+                <p className="text-purple-600 dark:text-purple-400 font-medium mb-4">{cert.issuer}</p>
+
+                {/* Description */}
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">{cert.description}</p>
               </div>
-
-              <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{cert.title}</h3>
-
-              <p className="text-purple-600 dark:text-purple-400 font-medium mb-4">{cert.issuer}</p>
-
-              <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">{cert.description}</p>
-
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href={cert.link}
-                className="inline-flex items-center space-x-2 text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 font-medium transition-colors duration-200"
-              >
-                <span>Lihat Sertifikat</span>
-                <ExternalLink size={16} />
-              </motion.a>
             </motion.div>
           ))}
         </div>
