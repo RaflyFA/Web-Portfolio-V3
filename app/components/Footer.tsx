@@ -113,7 +113,7 @@ export default function Footer() {
 
           {/* Bottom Section - Copyright */}
           <div className="border-t border-gray-200 dark:border-gray-700 pt-8 text-center space-y-2">
-            <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-400 text-xs lg:text-lg">
+            <div className="flex items-center justify-center space-x-2 text-gray-600 dark:text-gray-400 text-xs lg:text-sm">
               <span>© 2025 Portfolio Rafly FA. Dibuat dengan</span>
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
@@ -129,7 +129,7 @@ export default function Footer() {
                 <Coffee size={16} className="text-amber-600 w-3" />
               </motion.div>
             </div>
-            <div className="text-sm lg:text-lg text-gray-500 dark:text-gray-500">
+            <div className="text-sm lg:text-sm text-gray-500 dark:text-gray-500">
               <p>Siap mewujudkan website impian Anda</p>
             </div>
           </div>

@@ -1,9 +1,9 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Rafly FA - Web Developer & UI/UX Designer",
@@ -57,22 +57,37 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.jpg" type="image/jpg" />
+        <link rel="apple-touch-icon" href="/favicon.jpg" />
+        <link
+          rel="icon"
+          type="image/jpg"
+          sizes="32x32"
+          href="/favicon-32x32.jpg"
+        />
+        <link
+          rel="icon"
+          type="image/jpg"
+          sizes="16x16"
+          href="/favicon-16x16.jpg"
+        />
+        <link rel="shortcut icon" href="/favicon.jpg" />
         <meta name="theme-color" content="#8B5CF6" />
       </head>
+
       <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
