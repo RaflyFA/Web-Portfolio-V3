@@ -14,12 +14,24 @@ export default function Certificates() {
 
   const certificates = [
     {
+      title: "Belajar Front-End Web",
+      issuer: "DiCoding",
+      description:
+        "Diselesaikan pada 8 Juli 2025, sertifikat ini menunjukkan pemahaman saya dalam pengembangan Front-End, khususnya terkait manipulasi DOM dan pemanfaatan BOM pada browser. Membantu memperkuat logika dan struktur dalam membangun antarmuka web yang interaktif.",
+      date: "2025",
+      image: "/Sertifikat Front-End Web.jpg",
+      gradient: "from-yellow-500 to-orange-500",
+      bgGradient:
+        "from-purple-100 to-yellow-100 dark:from-purple-900/20 dark:to-yellow-900/20",
+    },
+
+    {
       title: "Belajar Pemrograman JavaScript",
       issuer: "DiCoding",
       description:
         "Diselesaikan pada 7 Juli 2025, sertifikat ini membuktikan penguasaan konsep dasar JavaScript, mulai dari variabel, fungsi, array, hingga pemrograman berbasis objek.",
       date: "2025",
-      image: "/sertifikat dicoding 2.jpg",
+      image: "/Sertifikat Pemograman Javascript.jpg",
       gradient: "from-yellow-500 to-orange-500",
       bgGradient:
         "from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20",
@@ -31,7 +43,7 @@ export default function Certificates() {
       description:
         "Diselesaikan pada 14 Oktober 2024, sertifikat ini membuktikan penguasaan dasar HTML, CSS, dan JavaScript untuk membangun website statis dan dinamis secara efisien.",
       date: "2024",
-      image: "/sertifikat dicoding.jpg",
+      image: "/Sertifikat Dasar Pemograman.jpg",
       gradient: "from-blue-500 to-cyan-500",
       bgGradient:
         "from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20",
