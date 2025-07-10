@@ -343,7 +343,6 @@ Terima kasih!`;
           </p>
         </motion.div>
 
-        {/* Layout dua kolom: kiri = form + connect, kanan = komentar */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Kolom kiri: Formulir + Connect With Me */}
           <motion.div

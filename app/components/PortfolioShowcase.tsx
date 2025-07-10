@@ -52,6 +52,8 @@ export default function PortfolioShowcase() {
           <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
             Portfolio Showcase
           </span>
+
+          <div className="w-20 h-1 mt-3 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
         </motion.h2>
         <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Kumpulan karya dan pencapaian yang mencerminkan proses belajar,
