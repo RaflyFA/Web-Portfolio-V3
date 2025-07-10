@@ -9,6 +9,8 @@ import Projects from "./components/Projects"
 import Certificates from "./components/Certificates"
 import Contact from "./components/Contact"
 import Footer from "./components/Footer"
+import PortfolioShowcase from "./components/PortfolioShowcase";
+
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false)
@@ -28,9 +30,7 @@ export default function Home() {
         <main>
           <Hero />
           <About />
-          <Skills />
-          <Projects />
-          <Certificates />
+          <PortfolioShowcase />
           <Contact />
         </main>
         <Footer />

@@ -64,7 +64,7 @@ export default function Certificates() {
   return (
     <section
       id="certificates"
-      className="py-20 items-center justify-center relative overflow-hidden"
+      className="py-0 items-center justify-center relative overflow-hidden"
     >
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden">
@@ -130,7 +130,7 @@ export default function Certificates() {
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-5 relative">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -138,16 +138,7 @@ export default function Certificates() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              Sertifikasi
-            </span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
-          <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-            Sertifikasi dan pencapaian yang mendukung kompetensi profesional
-            saya
-          </p>
+          
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

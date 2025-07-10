@@ -1,27 +1,37 @@
-"use client"
+"use client";
 
-import type React from "react"
+import React from "react";
+import type { ChangeEvent, FormEvent } from "react";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { Mail, Linkedin, Github, Send, MessageCircle, User, Briefcase, Instagram } from "lucide-react"
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Send,
+  MessageCircle,
+  User,
+  Briefcase,
+  Instagram,
+} from "lucide-react";
 
 export default function Contact() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     projectType: "",
     message: "",
-  })
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
 
     // Create WhatsApp message
     const whatsappMessage = `Halo Rafly! 👋
@@ -34,18 +44,22 @@ Saya ${formData.name} ingin berdiskusi tentang project ${formData.projectType}.
 📝 Detail Project:
 ${formData.message}
 
-Terima kasih!`
+Terima kasih!`;
 
-    const whatsappUrl = `https://wa.me/6281224086200?text=${encodeURIComponent(whatsappMessage)}`
-    window.open(whatsappUrl, "_blank")
-  }
+    const whatsappUrl = `https://wa.me/6281224086200?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const socialLinks = [
     {
@@ -76,7 +90,236 @@ Terima kasih!`
       color: "hover:text-pink-500",
       description: "instagram.com/rfl.yfa",
     },
-  ]
+  ];
+
+  interface Comment {
+    name: string;
+    message: string;
+    photo: string | null;
+    createdAt: string;
+    pinned: boolean;
+    owner: string;
+  }
+
+  // Komponen CommentSection
+
+  function timeAgo(date: string | Date) {
+    const now = new Date();
+    const seconds = Math.floor(
+      (now.getTime() - new Date(date).getTime()) / 1000
+    );
+    if (seconds < 60) return `${seconds}s ago`;
+    const minutes = Math.floor(seconds / 60);
+    if (minutes < 60) return `${minutes}m ago`;
+    const hours = Math.floor(minutes / 60);
+    if (hours < 24) return `${hours}h ago`;
+    return new Date(date).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  }
+
+  function CommentSection() {
+    // Ambil komentar dari localStorage saat mount
+    const [comments, setComments] = useState(() => {
+      if (typeof window !== "undefined") {
+        const saved = localStorage.getItem("comments-v3");
+        if (saved) return JSON.parse(saved);
+      }
+      return [
+        {
+          name: "Admin",
+          message:
+            "Selamat datang di halaman kontak! Silakan tinggalkan komentar atau pertanyaan di bawah.",
+          photo: null,
+          createdAt: new Date("2025-07-01T09:00:00").toISOString(),
+          pinned: true,
+          owner: "admin",
+        },
+      ];
+    });
+    const [input, setInput] = useState<{
+      name: string;
+      message: string;
+      photo: File | null;
+    }>({
+      name: "",
+      message: "",
+      photo: null,
+    });
+    const [photoPreview, setPhotoPreview] = useState<string | null>(null);
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+    // Simpan komentar ke localStorage setiap kali berubah
+    React.useEffect(() => {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("comments-v3", JSON.stringify(comments));
+      }
+    }, [comments]);
+
+    const handleInputChange = (
+      e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
+      setInput({ ...input, [e.target.name]: e.target.value });
+    };
+
+    const handlePhotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (file && file.size <= 5 * 1024 * 1024) {
+        setInput({ ...input, photo: file });
+        setPhotoPreview(URL.createObjectURL(file));
+      } else if (file) {
+        alert("File terlalu besar! Maksimal 5MB.");
+      }
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      if (!input.name.trim() || !input.message.trim()) return;
+      const newComment = {
+        name: input.name,
+        message: input.message,
+        photo: photoPreview,
+        createdAt: new Date().toISOString(),
+        pinned: false,
+        owner: input.name.trim().toLowerCase(),
+      };
+      setComments([comments[0], newComment, ...comments.slice(1)]); // pinned comment tetap di atas
+      setInput({ name: "", message: "", photo: null });
+      setPhotoPreview(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    };
+
+    // Hapus komentar (hanya admin atau pemilik)
+    const handleDelete = (idx: number) => {
+      setComments(comments.filter((_: unknown, i: number) => i !== idx));
+    };
+
+    const currentUser = input.name.trim().toLowerCase();
+
+    return (
+      <div>
+        <h3 className="text-xl font-bold mb-6">Comments ({comments.length})</h3>
+        <form onSubmit={handleSubmit} className="space-y-4 mb-8">
+          <div>
+            <label
+              htmlFor="comment-name"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            >
+              Name
+            </label>
+            <input
+              id="comment-name"
+              name="name"
+              type="text"
+              value={input.name}
+              onChange={handleInputChange}
+              placeholder="Enter your name"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="comment-message"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            >
+              Message
+            </label>
+            <textarea
+              id="comment-message"
+              name="message"
+              value={input.message}
+              onChange={handleInputChange}
+              placeholder="Write your message here..."
+              rows={3}
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 resize-none"
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Profile Photo (optional)
+            </label>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoChange}
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
+            />
+            <span className="text-xs text-gray-400">Max file size: 5MB</span>
+            {photoPreview && (
+              <img
+                src={photoPreview}
+                alt="Preview"
+                className="mt-2 w-14 h-14 rounded-full object-cover border"
+              />
+            )}
+          </div>
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition-all"
+          >
+            Post Comment
+          </button>
+        </form>
+        <div className="space-y-6">
+          {comments.map((c: Comment, i: number) => (
+            <div
+              key={i}
+              className={`flex items-start gap-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 relative ${
+                c.pinned ? "ring-2 ring-purple-400" : ""
+              }`}
+            >
+              <div>
+                {c.photo ? (
+                  <img
+                    src={c.photo}
+                    alt={c.name}
+                    className="w-12 h-12 rounded-full object-cover border"
+                  />
+                ) : (
+                  <div className="w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-700 flex items-center justify-center text-xl font-bold text-white">
+                    {c.name[0]}
+                  </div>
+                )}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-gray-900 dark:text-white">
+                    {c.name}
+                  </span>
+                  {c.pinned && (
+                    <span className="text-xs bg-yellow-200 text-yellow-800 px-2 py-0.5 rounded-full ml-2">
+                      Pinned
+                    </span>
+                  )}
+                  <span className="text-xs text-gray-400 ml-2">
+                    {timeAgo(c.createdAt)}
+                  </span>
+                  {/* Tombol hapus hanya untuk admin atau pemilik */}
+                  {!c.pinned &&
+                    (c.owner === currentUser || currentUser === "admin") && (
+                      <button
+                        onClick={() => handleDelete(i)}
+                        className="ml-2 text-xs text-red-500 hover:underline"
+                      >
+                        Hapus Komentar
+                      </button>
+                    )}
+                </div>
+                <div className="text-gray-700 dark:text-gray-200 mt-1 whitespace-pre-line">
+                  {c.message}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800/50">
@@ -89,36 +332,49 @@ Terima kasih!`
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Kontak</span>
+            <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+              Kontak
+            </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
           <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-            Tertarik bekerja sama dengan developer yang adaptif dan detail? Saya siap bantu wujudkan ide digital Anda.
+            Tertarik bekerja sama dengan developer yang adaptif dan detail? Saya
+            siap bantu wujudkan ide digital Anda.
           </p>
         </motion.div>
 
+        {/* Layout dua kolom: kiri = form + connect, kanan = komentar */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+          {/* Kolom kiri: Formulir + Connect With Me */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg"
+            className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg flex flex-col h-fit"
           >
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Kirim Pesan</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                Kirim Pesan
+              </h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Ceritakan tentang proyek Anda dan mari kita diskusikan lebih lanjut
+                Ceritakan tentang proyek Anda dan mari kita diskusikan lebih
+                lanjut
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="relative">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Nama Lengkap
                 </label>
                 <div className="relative">
-                  <User size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <User
+                    size={20}
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  />
                   <input
                     type="text"
                     id="name"
@@ -133,11 +389,17 @@ Terima kasih!`
               </div>
 
               <div className="relative">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Email Address
                 </label>
                 <div className="relative">
-                  <Mail size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <Mail
+                    size={20}
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  />
                   <input
                     type="email"
                     id="email"
@@ -159,7 +421,10 @@ Terima kasih!`
                   Jenis Proyek
                 </label>
                 <div className="relative">
-                  <Briefcase size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <Briefcase
+                    size={20}
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  />
                   <select
                     id="projectType"
                     name="projectType"
@@ -169,20 +434,30 @@ Terima kasih!`
                     className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
                   >
                     <option value="">Pilih jenis proyek</option>
-                    <option value="Website Development">Website Development</option>
+                    <option value="Website Development">
+                      Website Development
+                    </option>
                     <option value="UI/UX Design">UI/UX Design</option>
-                    <option value="E-Commerce Solution">E-Commerce Solution</option>
+                    <option value="E-Commerce Solution">
+                      E-Commerce Solution
+                    </option>
                     <option value="Lainnya">Lainnya</option>
                   </select>
                 </div>
               </div>
 
               <div className="relative">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Pesan
                 </label>
                 <div className="relative">
-                  <MessageCircle size={20} className="absolute left-3 top-4 text-gray-400" />
+                  <MessageCircle
+                    size={20}
+                    className="absolute left-3 top-4 text-gray-400"
+                  />
                   <textarea
                     id="message"
                     name="message"
@@ -206,22 +481,12 @@ Terima kasih!`
                 <span>Kirim Pesan</span>
               </motion.button>
             </form>
-          </motion.div>
 
-          {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-8"
-          >
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Mari Terhubung</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                Saya selalu terbuka untuk diskusi tentang project baru, kolaborasi, atau sekadar berbagi ide tentang
-                teknologi dan desain. Jangan ragu untuk menghubungi saya!
-              </p>
-
+            {/* Connect With Me (sosial) */}
+            <div className="mt-10">
+              <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+                Connect With Me
+              </h3>
               <div className="space-y-4">
                 {socialLinks.map((link) => (
                   <motion.a
@@ -232,30 +497,32 @@ Terima kasih!`
                     rel="noopener noreferrer"
                     className={`flex items-center space-x-4 p-4 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 ${link.color} transition-all duration-200 group`}
                   >
-                    <div className="group-hover:scale-110 transition-transform duration-200">{link.icon}</div>
+                    <div className="group-hover:scale-110 transition-transform duration-200">
+                      {link.icon}
+                    </div>
                     <div>
                       <div className="font-medium">{link.name}</div>
-                      <div className="text-sm text-gray-500 dark:text-gray-400">{link.description}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">
+                        {link.description}
+                      </div>
                     </div>
                   </motion.a>
                 ))}
               </div>
             </div>
+          </motion.div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-2xl p-8">
-              <h4 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Response Time</h4>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">
-                Saya biasanya bisa merespons dalam waktu 24 jam. Untuk proyek yang urgent, silakan chat Whastapp atau
-                Instagram saya.
-              </p>
-              <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium">Biasanya online 04:00 - 23:00 WIB</span>
-              </div>
-            </div>
+          {/* Kolom kanan: Comments */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg h-fit"
+          >
+            <CommentSection />
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

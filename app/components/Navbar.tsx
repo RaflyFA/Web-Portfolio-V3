@@ -17,31 +17,32 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
   const navItems = [
     { name: "Beranda", href: "#home" },
     { name: "Tentang", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Project", href: "#projects" },
-    { name: "Sertifikat", href: "#certificates" },
+    { name: "Portofolio", href: "#portfolio-showcase" }, 
     { name: "Kontak", href: "#contact" },
   ]
 
   const scrollToSection = (href: string) => {
-    // Memberikan sedikit delay untuk memastikan menu sudah menutup
-    // sebelum scroll, ini bisa membantu kompatibilitas di mobile.
-    setIsOpen(false) // Tutup menu terlebih dahulu
+  setIsOpen(false)
+
+  if (href.startsWith("#")) {
     setTimeout(() => {
       const element = document.querySelector(href)
       if (element) {
-        // Ambil offset dari bagian atas elemen fixed/sticky (misalnya navbar itu sendiri)
-        // Jika navbar Anda fixed dengan tinggi 16 unit (h-16), offsetnya sekitar 64px
-        const navbarHeight = document.querySelector('nav')?.offsetHeight || 64; // Dapatkan tinggi navbar dinamis atau default 64px
-        const offsetPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+        const navbarHeight = document.querySelector('nav')?.offsetHeight || 64
+        const offsetPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: "smooth"
-        });
+          behavior: "smooth",
+        })
       }
-    }, 300); // Sesuaikan delay ini jika perlu, setelah transisi menu (0.3s)
+    }, 300)
+  } else {
+    // Jika bukan anchor (misal /portfolio-showcase), redirect biasa
+    window.location.href = href
   }
+}
+
 
   // Close menu when clicking outside of the mobile menu itself
   useEffect(() => {

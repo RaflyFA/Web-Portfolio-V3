@@ -103,28 +103,12 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 flex lex items-center justify-center relative overflow-hidden bg-white dark:bg-gray-900/100"
+      className="pb-6 flex lex items-center justify-center relative overflow-hidden bg-white dark:bg-gray-900/100"
     >
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <motion.div
-          animate={{ x: [0, -150, 0], y: [0, 100, 0] }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute bottom-40 left-40  w-40 h-40 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full opacity-20 blur-xl"
-        />
-        <motion.div
-          animate={{ x: [0, 80, 0], y: [0, -80, 0] }}
-          transition={{
-            duration: 15,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute top-60 right-1/4 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-15 blur-lg"
-        />
+        
+        
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
           transition={{
@@ -136,17 +120,7 @@ export default function Skills() {
         >
           <Code size={48} />
         </motion.div>
-        <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-2/4 right-1/4 text-purple-300 dark:text-purple-600 opacity-30"
-        >
-          <Code size={48} />
-        </motion.div>
+        
         <motion.div
           animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
           transition={{
@@ -154,46 +128,27 @@ export default function Skills() {
             repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
           }}
-          className="absolute bottom-1/4 right-1/3 text-pink-300 dark:text-pink-600 opacity-30"
+          className="absolute bottom-3/4 right-1/3 text-pink-300 dark:text-pink-600 opacity-30"
         >
           <Palette size={40} />
         </motion.div>
-        <motion.div
-          animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
-          transition={{
-            duration: 3,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-20 left-1/4 text-blue-300 dark:text-blue-600 opacity-30"
-        >
-          <Sparkles size={36} />
-        </motion.div>
+       
       </div>
 
 
       {/* Skills Section */}
 
       <div className="relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 z-20">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                Skills
-              </span>
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full"></div>
-            <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-              Teknologi dan tools yang saya kuasai untuk menciptakan website
-              yang keren dan userfriendly
-            </p>
-          </motion.div>
+            >
+
+            </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skill, index) => (
