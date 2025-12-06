@@ -14,6 +14,17 @@ export default function Certificates() {
 
   const certificates = [
     {
+      title: "Sertifikat Juara Lomba UI/UX",
+      issuer: "Himpunan Mahasiswa Informatika Universitas Siliwangi",
+      description:
+        "Didapatkan pada pada Juli 2025, saya dan tim berhasil menjuarai lomba UI/UX yang diselenggarakan oleh Universitas Siliwangi dengan skla Nasional.",
+      date: "2025",
+      image: "/sertif UIUX.jpg",
+      gradient: "from-orange-500 to-yellow-500",
+      bgGradient:
+        "from-purple-100 to-yellow-100 dark:from-purple-900/20 dark:to-yellow-900/20",
+    },
+    {
       title: "Belajar Front-End Web",
       issuer: "DiCoding",
       description:

@@ -39,6 +39,23 @@ export default function Projects() {
 
   const webProjects: Project[] = [
     {
+      title: "Website Admin Rental PS",
+      category: "Web Application",
+      description:
+        "Saya Bertanggung jawab di fitur Reservasi, Berkolaborasi dengan tema se tim saya yang mengerjakan firu-fitur yang lainnya. Website in dibuat menggunakan React.js dan sekarang Website ini sudah digunakan untuk Tempat Rental PSnya.",
+      tech: [
+        { name: "React.js", icon: SiReact, color: "#61DAFB" },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      ],
+      github: "https://github.com/RaflyFA/rental_ps_fe",
+      live: "https://rentalpsfe.vercel.app//",
+      image: "/Project-RentalPS.jpg",
+      gradient: "from-blue-500 to-purple-500",
+      bgGradient:
+        "from-black-200 to-blue-100 dark:from-black-900/20 dark:to-blue-900/50",
+    },
+    {
       title: "E-Commerce Thinksale",
       category: "Web Application",
       description:
