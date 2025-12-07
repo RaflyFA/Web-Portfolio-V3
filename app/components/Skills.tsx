@@ -20,6 +20,7 @@ import {
   SiGit,
   SiGithub,
   SiGitlab,
+  SiSourcetree,
 } from "react-icons/si";
 
 export default function Skills() {
@@ -49,7 +50,6 @@ export default function Skills() {
           icon: <SiTypescript className="text-blue-600" />,
         },
         { name: "HTML5", icon: <SiHtml5 className="text-orange-500" /> },
-        
       ],
       gradient: "from-blue-500 to-gray-500",
       bgGradient:
@@ -92,6 +92,7 @@ export default function Skills() {
           icon: <SiGithub className="text-black dark:text-white" />,
         },
         { name: "GitLab", icon: <SiGitlab className="text-orange-500" /> },
+        { name: "SourceTree", icon: <SiSourcetree className="text-sky-500" /> },
       ],
       gradient:
         "from-yellow-400 to-red-400 dark:from-yellow-700 dark:to-red-600",
@@ -107,8 +108,6 @@ export default function Skills() {
     >
       {/* Background Decorations */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        
-        
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
           transition={{
@@ -120,7 +119,7 @@ export default function Skills() {
         >
           <Code size={48} />
         </motion.div>
-        
+
         <motion.div
           animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
           transition={{
@@ -132,9 +131,7 @@ export default function Skills() {
         >
           <Palette size={40} />
         </motion.div>
-       
       </div>
-
 
       {/* Skills Section */}
 
@@ -146,9 +143,7 @@ export default function Skills() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
-            >
-
-            </motion.div>
+          ></motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skill, index) => (

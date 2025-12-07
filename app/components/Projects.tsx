@@ -116,6 +116,18 @@ export default function Projects() {
   // === PERUBAHAN UTAMA DI SINI ===
   const designProjects: Project[] = [
     {
+      title: "Temuloka Mobile App",
+      category: "Mobile UI/UX",
+      description:
+        "Konsep aplikasi pemenang juara 2 lomba UI/UX tim kami. Temuloka membantu masyarakat menemukan informasi destinasi wisata Indonesia dengan fitur rekomendasi pintar, kurasi event lokal, dan komunitas traveler.",
+      tech: [{ name: "Figma", icon: SiFigma, color: "#F24E1E" }],
+      live: "https://www.figma.com/proto/ujXVOPSVw3qkp2LEhN37i8/UI-Iconic-IT?node-id=1059-3116&t=vi5gYIcNnluF7LMt-0&scaling=scale-down&content-scaling=fixed&page-id=754%3A626&starting-point-node-id=1059%3A4244",
+      image: "/uiux.jpg",
+      gradient: "from-teal-500 to-cyan-500",
+      bgGradient:
+        "from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20",
+    },
+    {
       title: "E-Commerce Thinksale Design",
       category: "UI/UX Design",
       description:
