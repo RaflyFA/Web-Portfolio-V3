@@ -39,6 +39,22 @@ export default function Projects() {
 
   const webProjects: Project[] = [
     {
+      title: "Landing-Page SR MOTOR",
+      category: "Web Application",
+      description:
+        "Landing Page ini adalah Website untuk bengkel motor yang ada di daerah Ciamis, Jawa Barat. Project ini merupakan project UAS saya di semester 3. Saya membuat landing page ini menggunakan React.js dan Tailwind CSS.",
+      tech: [
+        { name: "React.js", icon: SiReact, color: "#61DAFB" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      ],
+      github: "https://github.com/RaflyFA/SR-Motor",
+      live: "https://sr-motor.vercel.app/",
+      image: "/srmotor.jpg",
+      gradient: "from-yellow-500 to-blue-500",
+      bgGradient:
+        "from-black-200 to-blue-100 dark:from-black-900/20 dark:to-blue-900/50",
+    },
+    {
       title: "Website Admin Rental PS",
       category: "Web Application",
       description:
