@@ -179,7 +179,7 @@ export default function Hero() {
               className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"
             >
               <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Rafly Fahusnul Akbar
+                Rafly Fahusnul A
               </span>
             </motion.h1>
 
@@ -213,7 +213,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToProjects}
-                className="group px-6 md:px-8 py-2 md:py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
+                className="group px-4 md:px-6 py-2 md:py-3.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
               >
                 <span>Lihat Karya Saya</span>
                 <ArrowRight
@@ -226,7 +226,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleDownloadCV}
-                className="relative px-6 md:px-8 py-3 md:py-4 border-2 border-purple-600 text-purple-600 dark:text-purple-300 dark:border-purple-400 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 overflow-hidden"
+                className="relative px-4 md:px-6 py-2 md:py-3.5 border-2 border-purple-600 text-purple-600 dark:text-purple-300 dark:border-purple-400 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600  opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative z-10 flex items-center space-x-2">
@@ -248,7 +248,7 @@ export default function Hero() {
               initial="rest"
               animate="rest"
               whileHover="hover"
-              className="group relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
+              className="group relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 "
             >
               <motion.div
                 className="absolute inset-6 rounded-full bg-gradient-to-r from-purple-500/40 via-blue-500/20 to-teal-400/40 blur-3xl"
@@ -257,7 +257,7 @@ export default function Hero() {
                   scale: [0.95, 1.05, 0.95],
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 4,
                   repeat: Number.POSITIVE_INFINITY,
                   ease: "easeInOut",
                 }}
