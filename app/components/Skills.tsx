@@ -103,7 +103,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="pb-6 flex lex items-center justify-center bg-white dark:bg-gray-900/100"
+      className="pb-6 flex lex items-center justify-center bg-white dark:bg-gray-900/0"
     >
       <div className="relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 z-20">
