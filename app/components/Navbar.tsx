@@ -1,72 +1,102 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, Sun, Moon } from "lucide-react"
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 interface NavbarProps {
-  darkMode: boolean
-  setDarkMode: (value: boolean) => void
+  darkMode: boolean;
+  setDarkMode: (value: boolean) => void;
 }
 
 export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const mobileMenuRef = useRef<HTMLDivElement>(null)
-  const navToggleBtnRef = useRef<HTMLButtonElement>(null) // Ref untuk tombol toggle hamburger
+  const [isOpen, setIsOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const navToggleBtnRef = useRef<HTMLButtonElement>(null); // Ref untuk tombol toggle hamburger
 
   const navItems = [
     { name: "Beranda", href: "#home" },
     { name: "Tentang", href: "#about" },
-    { name: "Portofolio", href: "#portfolio-showcase" }, 
+    { name: "Pengalaman", href: "#experience" },
+    { name: "Portofolio", href: "#portfolio-showcase" },
     { name: "Kontak", href: "#contact" },
-  ]
+  ];
+
+  const smoothScrollTo = (targetY: number, duration = 650) => {
+    if (typeof window === "undefined") return;
+
+    const startY = window.scrollY;
+    const distance = targetY - startY;
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const step = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      const eased = easeInOutCubic(progress);
+      window.scrollTo({ top: startY + distance * eased });
+
+      if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
+  };
 
   const scrollToSection = (href: string) => {
-  setIsOpen(false)
+    setIsOpen(false);
 
-  if (href.startsWith("#")) {
-    setTimeout(() => {
-      const element = document.querySelector(href)
-      if (element) {
-        const navbarHeight = document.querySelector('nav')?.offsetHeight || 64
-        const offsetPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight
+    const performScroll = () => {
+      if (typeof window === "undefined") return;
+      const element = document.querySelector(href);
+      if (element instanceof HTMLElement) {
+        const navHeight =
+          document.querySelector("nav")?.getBoundingClientRect().height || 72;
+        const paddingOffset = 8;
+        const targetPosition =
+          element.getBoundingClientRect().top +
+          window.scrollY -
+          navHeight -
+          paddingOffset;
 
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        })
+        smoothScrollTo(targetPosition);
       }
-    }, 300)
-  } else {
-    // Jika bukan anchor (misal /portfolio-showcase), redirect biasa
-    window.location.href = href
-  }
-}
+    };
 
+    if (href.startsWith("#")) {
+      // Beri sedikit jeda ketika menutup menu mobile agar animasi terasa halus
+      const delay = isOpen ? 250 : 0;
+      setTimeout(performScroll, delay);
+    } else {
+      window.location.href = href;
+    }
+  };
 
   // Close menu when clicking outside of the mobile menu itself
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       // Pastikan klik TIDAK dari dalam menu mobile ATAU dari tombol hamburger itu sendiri
       if (
-        mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node) &&
-        navToggleBtnRef.current && !navToggleBtnRef.current.contains(event.target as Node)
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        navToggleBtnRef.current &&
+        !navToggleBtnRef.current.contains(event.target as Node)
       ) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
+    };
 
     if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside)
+      document.addEventListener("mousedown", handleClickOutside);
       // Opsional: tambahkan event listener untuk sentuhan di perangkat mobile
-     
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener("mousedown", handleClickOutside);
       // Hapus listener touchstart juga
-    }
-  }, [isOpen])
+    };
+  }, [isOpen]);
 
   // Handle body scroll locking when mobile menu is open
   useEffect(() => {
@@ -79,7 +109,6 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
       document.body.style.overflow = ""; // Bersihkan saat komponen unmount
     };
   }, [isOpen]);
-
 
   return (
     <motion.nav
@@ -114,7 +143,9 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
               whileTap={{ scale: 0.9 }}
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
-              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={
+                darkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
@@ -127,12 +158,14 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
               whileTap={{ scale: 0.9 }}
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
-              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={
+                darkMode ? "Switch to light mode" : "Switch to dark mode"
+              }
             >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
             <motion.button
-              ref={navToggleBtnRef} // 
+              ref={navToggleBtnRef} //
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
@@ -172,5 +205,5 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
         )}
       </AnimatePresence>
     </motion.nav>
-  )
+  );
 }

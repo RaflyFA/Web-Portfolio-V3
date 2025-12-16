@@ -269,7 +269,7 @@ Terima kasih!`;
           {comments.map((c: Comment, i: number) => (
             <div
               key={i}
-              className={`flex items-start gap-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 relative ${
+              className={`flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 relative ${
                 c.pinned ? "ring-2 ring-purple-400" : ""
               }`}
             >
@@ -322,8 +322,54 @@ Terima kasih!`;
   }
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="contact"
+      className="py-20 bg-white dark:bg-gray-900 scroll-mt-24 lg:scroll-mt-32 relative overflow-hidden"
+    >
+      <div className="absolute inset-0 opacity-70 pointer-events-none">
+        <motion.div
+          animate={{ x: [0, -140, 0], y: [0, 80, 0] }}
+          transition={{
+            duration: 24,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+          className="absolute top-10 right-0 w-60 h-60 bg-gradient-to-r from-blue-500/30 to-purple-500/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ x: [0, 90, 0], y: [0, -90, 0] }}
+          transition={{
+            duration: 28,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+          className="absolute -bottom-4 left-5 w-52 h-52 bg-gradient-to-r from-pink-500/30 to-orange-400/30 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ y: [0, -20, 0], rotate: [0, 12, 0] }}
+          transition={{
+            duration: 5,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+          className="absolute top-6 left-1/4 text-purple-300 dark:text-purple-600 opacity-30"
+        >
+          <Mail size={42} />
+        </motion.div>
+        <motion.div
+          animate={{ y: [0, 20, 0], rotate: [0, -12, 0] }}
+          transition={{
+            duration: 6,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-16 right-1/5 text-blue-300 dark:text-blue-600 opacity-30"
+        >
+          <Send size={38} />
+        </motion.div>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -349,7 +395,7 @@ Terima kasih!`;
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg flex flex-col h-fit"
+            className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 shadow-lg flex flex-col h-fit"
           >
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -494,7 +540,7 @@ Terima kasih!`;
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center space-x-4 p-4 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 ${link.color} transition-all duration-200 group`}
+                    className={`flex items-center space-x-4 p-4 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 ${link.color} transition-all duration-200 group`}
                   >
                     <div className="group-hover:scale-110 transition-transform duration-200">
                       {link.icon}
@@ -516,7 +562,7 @@ Terima kasih!`;
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg h-fit"
+            className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 shadow-lg h-fit"
           >
             <CommentSection />
           </motion.div>

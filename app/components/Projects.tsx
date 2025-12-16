@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github } from "lucide-react";
-import { Code, Palette, Sparkles } from "lucide-react";
 import {
   SiReact,
   SiNextdotjs,
@@ -165,7 +164,15 @@ export default function Projects() {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.2 }}
       whileHover={{ y: -10 }}
-      className={`bg-gradient-to-br ${project.bgGradient} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800`}
+      role="link"
+      tabIndex={0}
+      onClick={() => window.open(project.live, "_blank", "noopener,noreferrer")}
+      onKeyDown={(event) => {
+        if (event.key === "Enter") {
+          window.open(project.live, "_blank", "noopener,noreferrer");
+        }
+      }}
+      className={`bg-gradient-to-br ${project.bgGradient} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 cursor-pointer`}
     >
       <div className="p-6 flex flex-col h-full">
         {/* Category */}
@@ -222,6 +229,7 @@ export default function Projects() {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(event) => event.stopPropagation()}
               className="flex items-center space-x-2 px-3 py-1 rounded-md bg-white/60 dark:bg-gray-800/60  hover:bg-white hover:dark:bg-gray-700 transition-all duration-200 backdrop-blur"
             >
               <Github size={18} className="text-current" />
@@ -236,6 +244,7 @@ export default function Projects() {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(event) => event.stopPropagation()}
             className="flex items-center space-x-2 px-3 py-1 rounded-md bg-white/60 dark:bg-gray-800/60  hover:bg-white hover:dark:bg-gray-700 transition-all duration-200 backdrop-blur"
           >
             <ExternalLink size={18} className="text-current" />
@@ -247,88 +256,7 @@ export default function Projects() {
   );
 
   return (
-    <section className="py-0 relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
-        <motion.div
-          animate={{
-            x: [0, -80, 0],
-            y: [0, 120, 0],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute top-10 right-16 w-28 h-28 bg-gradient-to-r from-pink-400 to-yellow-400 rounded-full opacity-20 blur-xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, 120, 0],
-            y: [0, -100, 0],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute bottom-24 left-10 w-36 h-36 bg-gradient-to-r from-blue-400 to-green-400 rounded-full opacity-20 blur-xl"
-        />
-        <motion.div
-          animate={{
-            x: [0, -60, 0],
-            y: [0, 60, 0],
-          }}
-          transition={{
-            duration: 14,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-          className="absolute top-1/3 left-1/5 w-20 h-20 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full opacity-15 blur-lg"
-        />
-        <motion.div
-          animate={{
-            y: [0, 18, 0],
-            rotate: [0, 8, 0],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/4 left-1/3 text-yellow-300 dark:text-yellow-600 opacity-30"
-        >
-          <Code size={38} />
-        </motion.div>
-        <motion.div
-          animate={{
-            y: [0, -18, 0],
-            rotate: [0, -8, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/5 right-1/4 text-green-300 dark:text-green-600 opacity-30"
-        >
-          <Palette size={32} />
-        </motion.div>
-        <motion.div
-          animate={{
-            y: [0, 12, 0],
-            x: [0, -12, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-1/3 right-1/5 text-blue-300 dark:text-blue-600 opacity-30"
-        >
-          <Sparkles size={28} />
-        </motion.div>
-      </div>
-
+    <section className="py-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
         <motion.div
           ref={ref}

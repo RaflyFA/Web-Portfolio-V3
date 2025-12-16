@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Palette, Code, Server, Users } from "lucide-react";
-import { Sparkles } from "lucide-react";
 import {
   SiReact,
   SiNextdotjs,
@@ -104,37 +103,8 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="pb-6 flex lex items-center justify-center relative overflow-hidden bg-white dark:bg-gray-900/100"
+      className="pb-6 flex lex items-center justify-center bg-white dark:bg-gray-900/100"
     >
-      {/* Background Decorations */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <motion.div
-          animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 right-4 text-purple-300 dark:text-purple-600 opacity-30"
-        >
-          <Code size={48} />
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
-          transition={{
-            duration: 5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-          className="absolute bottom-3/4 right-1/3 text-pink-300 dark:text-pink-600 opacity-30"
-        >
-          <Palette size={40} />
-        </motion.div>
-      </div>
-
-      {/* Skills Section */}
-
       <div className="relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 z-20">
           <motion.div
