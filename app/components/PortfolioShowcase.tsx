@@ -50,8 +50,8 @@ export default function PortfolioShowcase() {
           </motion.h2>
           <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Kumpulan karya dan pencapaian yang mencerminkan proses belajar,
-            eksplorasi, dan pengembangan keterampilan saya dalam dunia teknologi
-            dan desain.
+            eksplorasi, dan pengembangan keterampilan saya dalam dunia Teknologi Web
+            dan UI/UX.
           </p>
         </div>
 

@@ -71,16 +71,28 @@ export default function Hero() {
     }
   };
 
-  const handleDownloadCV = () => {
+  const handleDownloadCV = async () => {
     if (typeof window === "undefined") return;
-    const link = document.createElement("a");
-    link.href = cvPath;
-    link.download = "CV Rafly Fahusnul Akbar.pdf";
-    link.target = "_blank";
-    link.rel = "noopener";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      const res = await fetch(cvPath, { method: "HEAD" });
+      if (!res.ok) {
+        alert(
+          "File CV belum tersedia. Tambahkan file ke folder public dengan path: " +
+            cvPath
+        );
+        return;
+      }
+      const link = document.createElement("a");
+      link.href = cvPath;
+      link.download = "CV Rafly Fahusnul Akbar.pdf";
+      link.target = "_blank";
+      link.rel = "noopener";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (e) {
+      alert("Gagal mengunduh CV. Coba lagi nanti.");
+    }
   };
 
   return (
@@ -213,7 +225,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToProjects}
-                className="group px-4 md:px-6 py-2 md:py-3.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
+                className="group px-4 md:px-6 py-2 md:py-3.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-200 flex items-center space-x-2"
               >
                 <span>Lihat Karya Saya</span>
                 <ArrowRight
@@ -226,7 +238,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleDownloadCV}
-                className="relative px-4 md:px-6 py-2 md:py-3.5 border-2 border-purple-600 text-purple-600 dark:text-purple-300 dark:border-purple-400 rounded-full font-semibold transition-all duration-300 flex items-center space-x-2 overflow-hidden"
+                className="relative px-4 md:px-6 py-2 md:py-3.5 border-2 border-purple-600 text-purple-600 dark:text-purple-300 dark:border-purple-400 rounded-full font-semibold transition-all duration-200 flex items-center space-x-2 overflow-hidden shadow-md hover:shadow-lg"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600  opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative z-10 flex items-center space-x-2">

@@ -216,7 +216,7 @@ Terima kasih!`;
               value={input.name}
               onChange={handleInputChange}
               placeholder="Enter your name"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500"
               required
             />
           </div>
@@ -234,7 +234,7 @@ Terima kasih!`;
               onChange={handleInputChange}
               placeholder="Write your message here..."
               rows={3}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 resize-none"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-500 resize-none"
               required
             />
           </div>
@@ -247,7 +247,7 @@ Terima kasih!`;
               type="file"
               accept="image/*"
               onChange={handlePhotoChange}
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100"
             />
             <span className="text-xs text-gray-400">Max file size: 5MB</span>
             {photoPreview && (
@@ -260,7 +260,7 @@ Terima kasih!`;
           </div>
           <button
             type="submit"
-            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition-all"
+            className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-xl font-semibold shadow hover:shadow-lg transition-all"
           >
             Post Comment
           </button>
@@ -427,7 +427,7 @@ Terima kasih!`;
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
                     placeholder="Masukkan nama lengkap Anda"
                   />
                 </div>
@@ -452,7 +452,7 @@ Terima kasih!`;
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
                     placeholder="email@gmail.com"
                   />
                 </div>
@@ -476,7 +476,7 @@ Terima kasih!`;
                     value={formData.projectType}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
                   >
                     <option value="">Pilih jenis proyek</option>
                     <option value="Website Development">
@@ -510,7 +510,7 @@ Terima kasih!`;
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200 resize-none"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200 resize-none"
                     placeholder="Ceritakan detail proyek Anda, timeline, budget, dan ekspektasi..."
                   />
                 </div>
@@ -520,7 +520,7 @@ Terima kasih!`;
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 px-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
               >
                 <Send size={20} />
                 <span>Kirim Pesan</span>
@@ -540,7 +540,7 @@ Terima kasih!`;
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center space-x-4 p-4 rounded-lg bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 ${link.color} transition-all duration-200 group`}
+                    className={`flex items-center space-x-4 p-4 rounded-xl bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 ${link.color} transition-all duration-200 group`}
                   >
                     <div className="group-hover:scale-110 transition-transform duration-200">
                       {link.icon}

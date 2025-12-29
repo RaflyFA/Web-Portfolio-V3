@@ -68,10 +68,10 @@ export default function Certificates() {
       description:
         "Dua sertifikat dari ajang KMI Award XVI 2025: KMI EXPO ini adalah ajang pameran untuk mahasiswa Wirausaha muda seindonesia yang diselenggarakan oleh Kemdikbudristek bekerjasama dengan Universitas Tidar. Saya dan tim berpartisipasi resmi di KMI Expo dan juga Alhamdulillah tim kami berhasil Juara Harapan 3 kategori Industri Kreatif untuk Tasik CraftCO Sustainable Fashion Etnis.",
       date: "21 November 2025",
-      images: ["/sertif Juara kmi expo.jpg", "/sertif peserta KMI EXPO.jpg"],
+      images: ["/sertif Juara kmi expo.png", "/sertif peserta KMI EXPO.png"],
       gradient: "from-purple-500 to-pink-500",
       bgGradient:
-        "from-purple-100 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20",
+        "from-yellow-100 to-purple-100 dark:from-yellow-400/20 dark:to-blue-900/20",
       tech: [
         { name: "Figma", icon: SiFigma, color: "#F24E1E" },
         { name: "Canva", icon: SiCanva, color: "#00C4CC" },
@@ -79,15 +79,27 @@ export default function Certificates() {
     },
     
     {
+      title: "Sertifikat Juara Lomba UI/UX",
+      issuer: "Himpunan Mahasiswa Informatika Universitas Siliwangi",
+      description:
+        "Didapatkan pada Juli 2025, saya dan tim berhasil  Juara 2 di lomba UI/UX yang diselenggarakan oleh Universitas Siliwangi dengan skala Nasional.",
+      date: "Juli 2025",
+      images: ["/sertif UIUX.jpg"],
+      gradient: "from-orange-500 to-yellow-500",
+      bgGradient:
+        "from-yellow-100 to-purple-100 dark:from-yellow-400/20 dark:to-blue-900/20",
+      tech: [{ name: "Figma", icon: SiFigma, color: "#F24E1E" }],
+    },
+    {
       title: "IBM SkillsBuild AI Integration",
       issuer: "IBM SkillsBuild",
       description:
         "Diraih pada 17 Agustus 2025 melalui modul Code Generation and Optimization Using IBM Granite (MDL-566). Sertifikat ini menguatkan kemampuan saya memanfaatkan AI untuk menghasilkan, mengaudit, dan mengoptimalkan kode untuk menghasilkan hasil kode yang maksimal.",
       date: "17 Agustus 2025",
-      images: ["/sertif IBM.jpg"],
+      images: ["/sertif IBM.png"],
       gradient: "from-indigo-500 to-sky-500",
       bgGradient:
-        "from-indigo-50 to-sky-50 dark:from-indigo-900/20 dark:to-sky-900/20",
+        "from-green-100 to-gray-100 dark:from-green-900/30 dark:to-gray-900/20",
       tech: [
         { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
         { name: "CSS3", icon: SiCss3, color: "#1572B6" },
@@ -98,27 +110,15 @@ export default function Certificates() {
       ],
     },
     {
-      title: "Sertifikat Juara Lomba UI/UX",
-      issuer: "Himpunan Mahasiswa Informatika Universitas Siliwangi",
-      description:
-        "Didapatkan pada Juli 2025, saya dan tim berhasil  Juara 2 di lomba UI/UX yang diselenggarakan oleh Universitas Siliwangi dengan skala Nasional.",
-      date: "Juli 2025",
-      images: ["/sertif UIUX.jpg"],
-      gradient: "from-orange-500 to-yellow-500",
-      bgGradient:
-        "from-purple-100 to-yellow-100 dark:from-purple-900/20 dark:to-yellow-900/20",
-      tech: [{ name: "Figma", icon: SiFigma, color: "#F24E1E" }],
-    },
-    {
       title: "Belajar Front-End Web",
       issuer: "DiCoding",
       description:
         "Diselesaikan pada 8 Juli 2025, sertifikat ini menunjukkan pemahaman saya dalam pengembangan Front-End, khususnya terkait manipulasi DOM dan pemanfaatan BOM pada browser. Membantu memperkuat logika dan struktur dalam membangun antarmuka web yang interaktif.",
       date: "8 Juli 2025",
-      images: ["/Sertifikat Front-End Web.jpg"],
+      images: ["/Sertifikat Front-End Web.png", "/Sertifikat Front-End Web 2.png"],
       gradient: "from-yellow-500 to-orange-500",
       bgGradient:
-        "from-purple-100 to-yellow-100 dark:from-purple-900/20 dark:to-yellow-900/20",
+        "from-green-100 to-gray-100 dark:from-green-900/30 dark:to-gray-900/20",
       tech: [
         { name: "React.js", icon: SiReact, color: "#61DAFB" },
         { name: "Vercel", icon: SiVercel, color: "#000000" },
@@ -136,10 +136,10 @@ export default function Certificates() {
       description:
         "Diselesaikan pada 7 Juli 2025, sertifikat ini membuktikan penguasaan konsep dasar JavaScript, mulai dari variabel, fungsi, array, hingga pemrograman berbasis objek.",
       date: "7 Juli 2025",
-      images: ["/Sertifikat Pemograman Javascript.jpg"],
+      images: ["/Sertifikat Pemograman Javascript.png", "/Sertifikat Pemograman Javascript2.png", "/Sertifikat Pemograman Javascript3.png"],
       gradient: "from-yellow-500 to-orange-500",
       bgGradient:
-        "from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20",
+        "from-green-100 to-gray-100 dark:from-green-900/30 dark:to-gray-900/20",
       tech: [
         { name: "React.js", icon: SiReact, color: "#61DAFB" },
         { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
@@ -155,10 +155,10 @@ export default function Certificates() {
       description:
         "Diselesaikan pada 14 Oktober 2024, sertifikat ini membuktikan penguasaan dasar HTML, CSS, dan JavaScript untuk membangun website statis dan dinamis secara efisien.",
       date: "14 Oktober 2024",
-      images: ["/Sertifikat Dasar Pemograman.jpg"],
+      images: ["/Sertifikat Dasar Pemograman.png", "/Sertifikat Dasar Pemograman2.png"],
       gradient: "from-blue-500 to-cyan-500",
       bgGradient:
-        "from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20",
+        "from-green-100 to-gray-100 dark:from-green-900/30 dark:to-gray-900/20",
       tech: [
         { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
         { name: "CSS3", icon: SiCss3, color: "#1572B6" },
@@ -175,7 +175,7 @@ export default function Certificates() {
       images: ["/Asisten Desain Grafis.jpg"],
       gradient: "from-gray-500 to-pink-500",
       bgGradient:
-        "from-gray-100 to-green-100 dark:from-green-900/20 dark:to-gray-900/20",
+        "from-blue-200 to-gray-200 dark:from-blue-900/20 dark:to-cyan-900/20",
       tech: [
         { name: "Canva", icon: SiCanva, color: "#00C4CC" },
         { name: "Figma", icon: SiFigma, color: "#F24E1E" },
@@ -238,6 +238,26 @@ export default function Certificates() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         ></motion.div>
+
+        <div className="flex justify-center mb-8">
+          <div className="bg-white/70 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 rounded-2xl px-6 py-4 shadow-sm max-w-2xl">
+            <p className="text-sm text-gray-700 dark:text-gray-200 font-medium mb-3">Keterangan Tingkatan Sertifikat:</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex items-center gap-2">
+                <span className="h-4 w-4 rounded-full bg-gradient-to-r from-[#b45309] to-[#fbbf24]" />
+                <span className="text-sm text-gray-700 dark:text-gray-300">Nasional</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="h-4 w-4 rounded-full bg-gradient-to-r from-[#0f766e] to-[#2dd4bf]" />
+                <span className="text-sm text-gray-700 dark:text-gray-300">Bootcamp</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="h-4 w-4 rounded-full bg-gradient-to-r from-[#647bc7] to-[#c0cfff]" />
+                <span className="text-sm text-gray-700 dark:text-gray-300">Magang</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((cert, index) => (
@@ -325,7 +345,7 @@ export default function Certificates() {
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.3 }}
               onClick={(event) => event.stopPropagation()}
-              className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 md:p-10 space-y-6"
+              className={`relative w-full max-w-5xl bg-gradient-to-br ${selectedCert.bgGradient} rounded-3xl shadow-2xl p-6 md:p-10 space-y-6 max-h-[90vh] overflow-y-auto`}
             >
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <button

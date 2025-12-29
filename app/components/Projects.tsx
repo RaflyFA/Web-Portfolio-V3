@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   SiReact,
   SiNextdotjs,
@@ -28,13 +29,26 @@ export default function Projects() {
     title: string;
     category: string;
     description: string;
-    tech: { name: string; icon: any; color?: string }[]; // tambahkan color
+    tech: { name: string; icon: any; color?: string }[];
     github?: string;
-    live: string;
-    image: string;
+    live?: string;
+    images: string[];
     gradient: string;
     bgGradient: string;
   }
+
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [projectImageIndex, setProjectImageIndex] = useState(0);
+  const [projectSlideDirection, setProjectSlideDirection] = useState<
+    "next" | "prev" | "neutral"
+  >("neutral");
+
+  useEffect(() => {
+    document.body.style.overflow = selectedProject ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
 
   const webProjects: Project[] = [
     {
@@ -48,10 +62,10 @@ export default function Projects() {
       ],
       github: "https://github.com/RaflyFA/SR-Motor",
       live: "https://sr-motor.vercel.app/",
-      image: "/srmotor.jpg",
+      images: ["/srmotor.png"],
       gradient: "from-yellow-500 to-blue-500",
       bgGradient:
-        "from-black-200 to-blue-100 dark:from-black-900/20 dark:to-blue-900/50",
+        "from-gray-200 to-blue-100 dark:from-blue-200/20 dark:to-gray-900/50",
     },
     {
       title: "Website Admin Rental PS",
@@ -65,7 +79,7 @@ export default function Projects() {
       ],
       github: "https://github.com/RaflyFA/rental_ps_fe",
       live: "https://rentalpsfe.vercel.app//",
-      image: "/Project-RentalPS.jpg",
+      images: ["/Project-RentalPS.jpg"],
       gradient: "from-blue-500 to-purple-500",
       bgGradient:
         "from-black-200 to-blue-100 dark:from-black-900/20 dark:to-blue-900/50",
@@ -85,7 +99,7 @@ export default function Projects() {
       ],
       github: "https://github.com/RaflyFA/thinksale-5s",
       live: "https://thinksale.vercel.app/",
-      image: "/webthinksale.jpg",
+      images: ["/webthinksale.jpg"],
       gradient: "from-blue-500 to-purple-500",
       bgGradient:
         "from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20",
@@ -104,7 +118,7 @@ export default function Projects() {
       ],
       github: "https://github.com/RaflyFA/VictoryJoki",
       live: "https://victoryjoki.vercel.app/",
-      image: "/WebsiteJoki.jpg",
+      images: ["/WebsiteJoki.jpg"],
       gradient: "from-green-500 to-teal-500",
       bgGradient:
         "from-green-100 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20",
@@ -121,7 +135,7 @@ export default function Projects() {
       ],
       github: "https://github.com/RaflyFA/kedaiKopi", // Perbaiki typo "hhttps"
       live: "https://raflyfa.github.io/kedaiKopi/",
-      image: "/kedaikopi.jpg",
+      images: ["/kedaikopi.jpg"],
       gradient: "from-gray-500 to-orange-500",
       bgGradient:
         "from-gray-100 to-orange-50 dark:from-gray-900/20 dark:to-orange-900/20",
@@ -137,7 +151,7 @@ export default function Projects() {
         "Konsep aplikasi pemenang juara 2 lomba UI/UX tim kami. Temuloka membantu masyarakat menemukan informasi destinasi wisata Indonesia dengan fitur rekomendasi pintar, kurasi event lokal, dan komunitas traveler.",
       tech: [{ name: "Figma", icon: SiFigma, color: "#F24E1E" }],
       live: "https://www.figma.com/proto/ujXVOPSVw3qkp2LEhN37i8/UI-Iconic-IT?node-id=1059-3116&t=vi5gYIcNnluF7LMt-0&scaling=scale-down&content-scaling=fixed&page-id=754%3A626&starting-point-node-id=1059%3A4244",
-      image: "/uiux.jpg",
+      images: ["/uiux.jpg"],
       gradient: "from-teal-500 to-cyan-500",
       bgGradient:
         "from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20",
@@ -149,27 +163,71 @@ export default function Projects() {
         "Desain UI/UX untuk website e-commerce Thinksale. Fokus pada user experience yang intuitif dan desain yang modern untuk meningkatkan konversi penjualan.",
       tech: [{ name: "Figma", icon: SiFigma, color: "#F24E1E" }],
       live: "https://www.figma.com/design/mkQ1SC3Ddi0MbiaYLgw3NF/Untitled?node-id=0-1&p=f&t=rQORAwHlU6qG0ZtM-0",
-      image: "/desain1(1).jpg",
+      images: ["/desain1(1).png"],
       gradient: "from-gray-500 to-blue-500",
       bgGradient:
         "from-gray-100 to-blue-100 dark:from-gray-900/20 dark:to-blue-900/20",
     },
   ];
 
+  const projectImageVariants = {
+    initial: (direction: "next" | "prev" | "neutral") => ({
+      x: direction === "next" ? 80 : direction === "prev" ? -80 : 0,
+      opacity: 0,
+    }),
+    animate: { x: 0, opacity: 1 },
+    exit: (direction: "next" | "prev" | "neutral") => ({
+      x: direction === "next" ? -80 : direction === "prev" ? 80 : 0,
+      opacity: 0,
+    }),
+  };
+
+  const openProject = (project: Project) => {
+    setSelectedProject(project);
+    setProjectImageIndex(0);
+    setProjectSlideDirection("neutral");
+  };
+
+  const closeProject = () => {
+    setSelectedProject(null);
+    setProjectImageIndex(0);
+    setProjectSlideDirection("neutral");
+  };
+
+  const showNextProjectImage = () => {
+    if (!selectedProject) return;
+    const images = selectedProject.images;
+    if (images.length <= 1) return;
+    setProjectSlideDirection("next");
+    setProjectImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const showPrevProjectImage = () => {
+    if (!selectedProject) return;
+    const images = selectedProject.images;
+    if (images.length <= 1) return;
+    setProjectSlideDirection("prev");
+    setProjectImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
   const ProjectCard = (
-    { project, index }: { project: Project; index: number } // Gunakan tipe Project
+    {
+      project,
+      index,
+      onOpen,
+    }: { project: Project; index: number; onOpen: (project: Project) => void }
   ) => (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.2 }}
       whileHover={{ y: -10 }}
-      role="link"
+      role="button"
       tabIndex={0}
-      onClick={() => window.open(project.live, "_blank", "noopener,noreferrer")}
+      onClick={() => onOpen(project)}
       onKeyDown={(event) => {
         if (event.key === "Enter") {
-          window.open(project.live, "_blank", "noopener,noreferrer");
+          onOpen(project);
         }
       }}
       className={`bg-gradient-to-br ${project.bgGradient} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 cursor-pointer`}
@@ -186,7 +244,7 @@ export default function Projects() {
         <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
           {/* Perbaiki src Image agar tidak ada || "/placeholder.svg" jika Anda yakin gambar selalu ada */}
           <Image
-            src={project.image}
+            src={project.images[0]}
             alt={project.title}
             fill
             className="object-cover"
@@ -238,64 +296,209 @@ export default function Projects() {
           )}
 
           {/* Link Live selalu ada */}
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(event) => event.stopPropagation()}
-            className="flex items-center space-x-2 px-3 py-1 rounded-md bg-white/60 dark:bg-gray-800/60  hover:bg-white hover:dark:bg-gray-700 transition-all duration-200 backdrop-blur"
-          >
-            <ExternalLink size={18} className="text-current" />
-            <span className="text-sm font-medium">Live</span>
-          </motion.a>
+          {project.live && (
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => event.stopPropagation()}
+              className="flex items-center space-x-2 px-3 py-1 rounded-md bg-white/60 dark:bg-gray-800/60  hover:bg-white hover:dark:bg-gray-700 transition-all duration-200 backdrop-blur"
+            >
+              <ExternalLink size={18} className="text-current" />
+              <span className="text-sm font-medium">Live</span>
+            </motion.a>
+          )}
         </div>
       </div>
     </motion.div>
   );
 
   return (
-    <section className="py-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
+    <>
+      <section className="py-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          ></motion.div>
+
+          {/* Web Projects */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold mb-8 ">Web Development</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {webProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  index={index}
+                  onOpen={openProject}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Design Projects */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">
+              UI/UX Design
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {designProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  index={index}
+                  onOpen={openProject}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <AnimatePresence>
+      {selectedProject && (
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        ></motion.div>
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={closeProject}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 30 }}
+            transition={{ duration: 0.3 }}
+            onClick={(event) => event.stopPropagation()}
+            className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 md:p-10 space-y-6"
+          >
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={closeProject}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              >
+                <ArrowLeft size={18} />
+                Kembali
+              </button>
 
-        {/* Web Projects */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-8 ">Web Development</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {webProjects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                project={project}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
+              <span className="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 text-sm font-medium">
+                {selectedProject.category}
+              </span>
+            </div>
 
-        {/* Design Projects */}
-        <div>
-          <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">
-            UI/UX Design
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {designProjects.map((project, index) => (
-              <ProjectCard
-                key={project.title}
-                project={project}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
+            <div className={`relative w-full h-[55vh] min-h-[320px] rounded-2xl bg-white dark:bg-gray-800/50`}>
+              <AnimatePresence mode="wait" custom={projectSlideDirection}>
+                <motion.div
+                  key={`${selectedProject.title}-${projectImageIndex}`}
+                  custom={projectSlideDirection}
+                  variants={projectImageVariants}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  transition={{ duration: 0.28, ease: "easeInOut" }}
+                  className="absolute inset-0 p-4 md:p-6 overflow-auto"
+                >
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={selectedProject.images[projectImageIndex]}
+                      alt={`${selectedProject.title} ${projectImageIndex + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 90vw, 60vw"
+                      className="object-contain"
+                    />
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {selectedProject.images.length > 1 && (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPrevProjectImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextProjectImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/80 dark:bg-gray-800/80 text-xs font-semibold text-gray-800 dark:text-gray-100">
+                    {projectImageIndex + 1} / {selectedProject.images.length}
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              {selectedProject.github && (
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={selectedProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <Github size={16} />
+                  Github
+                </motion.a>
+              )}
+              {selectedProject.live && (
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={selectedProject.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                  <ExternalLink size={16} />
+                  Live
+                </motion.a>
+              )}
+            </div>
+
+            <div className="space-y-3">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                {selectedProject.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                {selectedProject.description}
+              </p>
+
+              {selectedProject.tech.length > 0 && (
+                <div className="flex flex-wrap gap-3 pt-2">
+                  {selectedProject.tech.map((tech) => (
+                    <div
+                      key={`project-${selectedProject.title}-${tech.name}`}
+                      className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full text-sm font-medium"
+                    >
+                      <tech.icon size={16} style={{ color: tech.color }} />
+                      <span className="text-gray-800 dark:text-gray-100">
+                        {tech.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    </>
   );
 }
+
+
+
