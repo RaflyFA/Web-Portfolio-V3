@@ -345,24 +345,24 @@ export default function Certificates() {
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.3 }}
               onClick={(event) => event.stopPropagation()}
-              className={`relative w-full max-w-5xl bg-gradient-to-br ${selectedCert.bgGradient} rounded-3xl shadow-2xl p-6 md:p-10 space-y-6 max-h-[90vh] overflow-y-auto`}
+              className={`relative w-full max-w-5xl bg-gradient-to-br ${selectedCert.bgGradient} rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 lg:p-10 space-y-4 sm:space-y-6 max-h-[90vh] overflow-y-auto`}
             >
-              <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-4">
                 <button
                   type="button"
                   onClick={closeCertificate}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100 text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-100 text-xs sm:text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                 >
-                  <ArrowLeft size={18} />
+                  <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" />
                   Kembali
                 </button>
-                <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-                  <Calendar size={16} />
+                <div className="flex items-center gap-2 text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400">
+                  <Calendar size={14} className="sm:w-[16px] sm:h-[16px]" />
                   <span>{selectedCert.date}</span>
                 </div>
               </div>
 
-              <div className="relative w-full h-[60vh] min-h-[360px] rounded-2xl bg-gray-900/90">
+              <div className="relative w-full h-[40vh] sm:h-[50vh] md:h-[60vh] min-h-[280px] sm:min-h-[360px] rounded-2xl bg-gray-900/90">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`${selectedCert.title}-${activeImageIndex}`}
@@ -370,7 +370,7 @@ export default function Certificates() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute inset-0 p-4 md:p-6 overflow-auto"
+                    className="absolute inset-0 p-2 sm:p-4 md:p-6 overflow-auto"
                   >
                     <div className="relative w-full h-full">
                       <Image
@@ -390,76 +390,76 @@ export default function Certificates() {
                     <button
                       type="button"
                       onClick={showPrevImage}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
+                      className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
                     >
-                      <ChevronLeft size={20} />
+                      <ChevronLeft size={18} className="sm:w-[20px] sm:h-[20px]" />
                     </button>
                     <button
                       type="button"
                       onClick={showNextImage}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
+                      className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
                     >
-                      <ChevronRight size={20} />
+                      <ChevronRight size={18} className="sm:w-[20px] sm:h-[20px]" />
                     </button>
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/80 dark:bg-gray-800/80 text-xs font-semibold text-gray-800 dark:text-gray-100">
+                    <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 px-2 sm:px-3 py-1 rounded-full bg-white/80 dark:bg-gray-800/80 text-xs font-semibold text-gray-800 dark:text-gray-100">
                       {activeImageIndex + 1} / {selectedCert.images.length}
                     </div>
                   </>
                 )}
 
-                <div className="absolute bottom-4 right-4 flex items-center gap-2">
+                <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 flex items-center gap-1 sm:gap-2">
                   <button
                     type="button"
                     onClick={zoomOut}
                     disabled={!canZoomOut}
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg ${
+                    className={`inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg ${
                       canZoomOut
                         ? "hover:bg-white"
                         : "opacity-50 cursor-not-allowed"
                     }`}
                   >
-                    <ZoomOut size={18} />
+                    <ZoomOut size={16} className="sm:w-[18px] sm:h-[18px]" />
                   </button>
                   <button
                     type="button"
                     onClick={resetZoom}
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
+                    className="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
                   >
-                    <RefreshCw size={18} />
+                    <RefreshCw size={16} className="sm:w-[18px] sm:h-[18px]" />
                   </button>
                   <button
                     type="button"
                     onClick={zoomIn}
                     disabled={!canZoomIn}
-                    className={`inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg ${
+                    className={`inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg ${
                       canZoomIn
                         ? "hover:bg-white"
                         : "opacity-50 cursor-not-allowed"
                     }`}
                   >
-                    <ZoomIn size={18} />
+                    <ZoomIn size={16} className="sm:w-[18px] sm:h-[18px]" />
                   </button>
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <div className="space-y-2 sm:space-y-3">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                   {selectedCert.title}
                 </h3>
-                <p className="text-purple-600 dark:text-purple-400 font-semibold">
+                <p className="text-sm sm:text-base text-purple-600 dark:text-purple-400 font-semibold">
                   {selectedCert.issuer}
                 </p>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                   {selectedCert.description}
                 </p>
                 {selectedCert.tech.length > 0 && (
-                  <div className="flex flex-wrap gap-3 pt-2">
+                  <div className="flex flex-wrap gap-2 sm:gap-3 pt-2">
                     {selectedCert.tech.map((tech) => (
                       <div
                         key={`modal-${selectedCert.title}-${tech.name}`}
-                        className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full text-sm font-medium"
+                        className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-2 sm:px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium"
                       >
-                        <tech.icon size={16} style={{ color: tech.color }} />
+                        <tech.icon size={14} className="sm:w-[16px] sm:h-[16px]" style={{ color: tech.color }} />
                         <span className="text-gray-800 dark:text-gray-100">
                           {tech.name}
                         </span>

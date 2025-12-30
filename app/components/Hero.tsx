@@ -17,23 +17,18 @@ export default function Hero() {
 
   const smoothScrollTo = (targetY: number, duration = 650) => {
     if (typeof window === "undefined") return;
-
     const startY = window.scrollY;
     const distance = targetY - startY;
     let startTime: number | null = null;
-
     const easeInOutCubic = (t: number) =>
       t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
     const step = (currentTime: number) => {
       if (startTime === null) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
       const eased = easeInOutCubic(progress);
       window.scrollTo({ top: startY + distance * eased });
-
       if (progress < 1) requestAnimationFrame(step);
     };
-
     requestAnimationFrame(step);
   };
 
@@ -43,31 +38,9 @@ export default function Hero() {
     if (element instanceof HTMLElement) {
       const navHeight =
         document.querySelector("nav")?.getBoundingClientRect().height || 72;
-      const paddingOffset = 8;
-      const targetPosition =
-        element.getBoundingClientRect().top +
-        window.scrollY -
-        navHeight -
-        paddingOffset;
-
-      smoothScrollTo(targetPosition);
-    }
-  };
-
-  const scrollToContact = () => {
-    if (typeof window === "undefined") return;
-    const element = document.querySelector("#contact");
-    if (element instanceof HTMLElement) {
-      const navHeight =
-        document.querySelector("nav")?.getBoundingClientRect().height || 72;
-      const paddingOffset = 8;
-      const targetPosition =
-        element.getBoundingClientRect().top +
-        window.scrollY -
-        navHeight -
-        paddingOffset;
-
-      smoothScrollTo(targetPosition);
+      smoothScrollTo(
+        element.getBoundingClientRect().top + window.scrollY - navHeight - 8
+      );
     }
   };
 
@@ -76,10 +49,7 @@ export default function Hero() {
     try {
       const res = await fetch(cvPath, { method: "HEAD" });
       if (!res.ok) {
-        alert(
-          "File CV belum tersedia. Tambahkan file ke folder public dengan path: " +
-            cvPath
-        );
+        alert("File CV belum tersedia di folder public.");
         return;
       }
       const link = document.createElement("a");
@@ -91,88 +61,65 @@ export default function Hero() {
       link.click();
       document.body.removeChild(link);
     } catch (e) {
-      alert("Gagal mengunduh CV. Coba lagi nanti.");
+      alert("Gagal mengunduh CV.");
     }
   };
 
   return (
     <section
       id="home"
-      className="flex items-center justify-center relative overflow-hidden lg:min-h-screen pt-16 pb-8 px-4 sm:px-6 lg:px-8 scroll-mt-24 lg:scroll-mt-32"
+      className="relative overflow-hidden lg:min-h-screen pt-12 pb-12 scroll-mt-24 lg:scroll-mt-32 flex items-center"
     >
       {/* Background Decorations */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
-          transition={{
-            duration: 20,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full opacity-20 blur-xl"
         />
         <motion.div
           animate={{ x: [0, -150, 0], y: [0, 100, 0] }}
-          transition={{
-            duration: 25,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full opacity-20 blur-xl"
         />
         <motion.div
           animate={{ x: [0, 80, 0], y: [0, -80, 0] }}
-          transition={{
-            duration: 15,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/2 right-1/4 w-24 h-24 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-15 blur-lg"
         />
+        {/* Floating Icons */}
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/4 left-1/4 text-purple-300 dark:text-purple-600 opacity-30"
         >
           <Code size={48} />
         </motion.div>
         <motion.div
           animate={{ y: [0, 20, 0], rotate: [0, -10, 0] }}
-          transition={{
-            duration: 5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-1/4 right-1/3 text-pink-300 dark:text-pink-600 opacity-30"
         >
           <Palette size={40} />
         </motion.div>
         <motion.div
           animate={{ y: [0, -15, 0], x: [0, 10, 0] }}
-          transition={{
-            duration: 3,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/3 right-1/4 text-blue-300 dark:text-blue-600 opacity-30"
         >
           <Sparkles size={36} />
         </motion.div>
       </div>
 
-      {/* Hero Content */}
-      <div className="max-w-7xl mx-auto relative z-10 py-8 md:py-16">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          {/* Text Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-8 lg:gap-16">
+          
+          {/* BAGIAN TEKS: Full aligned to left */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex-1 text-center md:text-left space-y-6 md:space-y-8"
+            className="w-full md:basis-3/5 text-center md:text-left space-y-6 md:space-y-8"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -188,10 +135,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"
+              className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold leading-tight"
             >
-              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Rafly Fahusnul A
+              <span className="bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 bg-clip-text text-transparent lg:whitespace-nowrap">
+                Rafly Fahusnul Akbar
               </span>
             </motion.h1>
 
@@ -208,7 +155,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-base sm:text-lg md:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto md:mx-0 leading-relaxed"
+              className="text-base sm:text-lg md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto md:mx-0 leading-relaxed"
             >
               Membangun Website yang efisien menggunakan React dan Next.js.
               Fokus pada performa dan struktur kode yang rapih dan bersih, Siap
@@ -219,18 +166,19 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center pt-4 flex-wrap"
+              // Pastikan justify-start di layar desktop (md:justify-start)
+              className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center pt-4"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToProjects}
-                className="group px-4 md:px-6 py-2 md:py-3.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-200 flex items-center space-x-2"
+                className="group px-6 py-3.5 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-200 flex items-center space-x-2"
               >
                 <span>Lihat Karya Saya</span>
                 <ArrowRight
                   size={20}
-                  className="group-hover:translate-x-1 transition-transform duration-200"
+                  className="group-hover:translate-x-1 transition-transform"
                 />
               </motion.button>
 
@@ -238,9 +186,9 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleDownloadCV}
-                className="relative px-4 md:px-6 py-2 md:py-3.5 border-2 border-purple-600 text-purple-600 dark:text-purple-300 dark:border-purple-400 rounded-full font-semibold transition-all duration-200 flex items-center space-x-2 overflow-hidden shadow-md hover:shadow-lg"
+                className="relative px-6 py-3.5 border-2 border-purple-600 text-purple-600 dark:text-purple-300 dark:border-purple-400 rounded-full font-semibold transition-all duration-200 flex items-center space-x-2 overflow-hidden shadow-md hover:shadow-lg"
               >
-                <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600  opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative z-10 flex items-center space-x-2">
                   <Download size={18} />
                   <span>Download CV</span>
@@ -249,18 +197,18 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Profile Image */}
+          {/* BAGIAN GAMBAR */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex-1 flex justify-center"
+            className="w-full md:basis-2/5 flex justify-center md:justify-end"
           >
             <motion.div
               initial="rest"
               animate="rest"
               whileHover="hover"
-              className="group relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 "
+              className="group relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96"
             >
               <motion.div
                 className="absolute inset-6 rounded-full bg-gradient-to-r from-purple-500/40 via-blue-500/20 to-teal-400/40 blur-3xl"
@@ -270,14 +218,14 @@ export default function Hero() {
                 }}
                 transition={{
                   duration: 4,
-                  repeat: Number.POSITIVE_INFINITY,
+                  repeat: Infinity,
                   ease: "easeInOut",
                 }}
               />
               <motion.div
                 variants={frameVariants}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="relative z-10 w-full h-full rounded-full bg-gradient-to-br from-white/70 via-gray-100 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 shadow-[0_35px_60px_rgba(79,70,229,0.35)] p-1"
+                className="relative z-10 w-full h-full rounded-full bg-gradient-to-br from-white/70 via-gray-100 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 shadow-2xl p-1"
               >
                 <motion.div
                   variants={profileVariants}
@@ -297,7 +245,7 @@ export default function Hero() {
                     animate={{ x: ["-150%", "150%"] }}
                     transition={{
                       duration: 4,
-                      repeat: Number.POSITIVE_INFINITY,
+                      repeat: Infinity,
                       repeatDelay: 1.2,
                     }}
                   />

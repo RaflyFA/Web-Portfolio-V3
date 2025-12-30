@@ -49,8 +49,28 @@ export default function Projects() {
       document.body.style.overflow = "";
     };
   }, [selectedProject]);
-
+  
   const webProjects: Project[] = [
+    {
+      title: "E-Commerce Thinksale",
+      category: "Web Application",
+      description:
+        "Website e-commerce yang dibangun dengan Next.js, Tailwind CSS, dan Supabase. Saya bertanggung jawab di sisi frontend, berkolaborasi dengan rekan saya yang mengerjakan backend. Website ini sudah digunakan untuk transaksi nyata dan berhasil menghasilkan beberapa closing.",
+      tech: [
+        { name: "React.js", icon: SiReact, color: "#61DAFB" },
+        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+        { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
+        { name: "Vercel", icon: SiVercel, color: "#000000" },
+      ],
+      github: "https://github.com/RaflyFA/thinksale-5s",
+      live: "https://thinksale.vercel.app/",
+      images: ["/webthinksale.jpg", "/webthinksale2.jpg", "/webthinksale3.jpg", "/webthinksale4.jpg", "/webthinksale5.jpg", "/webthinksale6.jpg", "/webthinksale7.jpg", "/webthinksale8.jpg"],
+      gradient: "from-blue-500 to-purple-500",
+      bgGradient:
+        "from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20",
+    },
     {
       title: "Landing-Page SR MOTOR",
       category: "Web Application",
@@ -62,7 +82,7 @@ export default function Projects() {
       ],
       github: "https://github.com/RaflyFA/SR-Motor",
       live: "https://sr-motor.vercel.app/",
-      images: ["/srmotor.png"],
+      images: ["/srmotor.png", "/srmotor2.png", "/srmotor3.png"],
       gradient: "from-yellow-500 to-blue-500",
       bgGradient:
         "from-gray-200 to-blue-100 dark:from-blue-200/20 dark:to-gray-900/50",
@@ -85,26 +105,6 @@ export default function Projects() {
         "from-black-200 to-blue-100 dark:from-black-900/20 dark:to-blue-900/50",
     },
     {
-      title: "E-Commerce Thinksale",
-      category: "Web Application",
-      description:
-        "Website e-commerce yang dibangun dengan Next.js, Tailwind CSS, dan Supabase. Saya bertanggung jawab di sisi frontend, berkolaborasi dengan rekan saya yang mengerjakan backend. Website ini sudah digunakan untuk transaksi nyata dan berhasil menghasilkan beberapa closing.",
-      tech: [
-        { name: "React.js", icon: SiReact, color: "#61DAFB" },
-        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
-        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-        { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
-        { name: "Vercel", icon: SiVercel, color: "#000000" },
-      ],
-      github: "https://github.com/RaflyFA/thinksale-5s",
-      live: "https://thinksale.vercel.app/",
-      images: ["/webthinksale.jpg"],
-      gradient: "from-blue-500 to-purple-500",
-      bgGradient:
-        "from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20",
-    },
-    {
       title: "Landing-Page VictoryJoki",
       category: "Web Application",
       description:
@@ -118,7 +118,7 @@ export default function Projects() {
       ],
       github: "https://github.com/RaflyFA/VictoryJoki",
       live: "https://victoryjoki.vercel.app/",
-      images: ["/WebsiteJoki.jpg"],
+      images: ["/WebsiteJoki.jpg", "/WebsiteJoki2.jpg", "/WebsiteJoki3.jpg"],
       gradient: "from-green-500 to-teal-500",
       bgGradient:
         "from-green-100 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20",
@@ -135,7 +135,7 @@ export default function Projects() {
       ],
       github: "https://github.com/RaflyFA/kedaiKopi", // Perbaiki typo "hhttps"
       live: "https://raflyfa.github.io/kedaiKopi/",
-      images: ["/kedaikopi.jpg"],
+      images: ["/kedaikopi.jpg", "/kedaikopi2.jpg", "/kedaikopi3.jpg"],
       gradient: "from-gray-500 to-orange-500",
       bgGradient:
         "from-gray-100 to-orange-50 dark:from-gray-900/20 dark:to-orange-900/20",
@@ -375,24 +375,24 @@ export default function Projects() {
             exit={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.3 }}
             onClick={(event) => event.stopPropagation()}
-            className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-3xl shadow-2xl p-6 md:p-10 space-y-6"
+            className="relative w-full max-w-5xl bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 lg:p-10 space-y-4 sm:space-y-6 max-h-[90vh] overflow-y-auto"
           >
-            <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3">
               <button
                 type="button"
                 onClick={closeProject}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-xs sm:text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
-                <ArrowLeft size={18} />
+                <ArrowLeft size={16} className="sm:w-[18px] sm:h-[18px]" />
                 Kembali
               </button>
 
-              <span className="px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 text-sm font-medium">
+              <span className="px-2 sm:px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium">
                 {selectedProject.category}
               </span>
             </div>
 
-            <div className={`relative w-full h-[55vh] min-h-[320px] rounded-2xl bg-white dark:bg-gray-800/50`}>
+            <div className={`relative w-full h-[40vh] sm:h-[50vh] md:h-[55vh] min-h-[280px] sm:min-h-[360px] rounded-2xl bg-white dark:bg-gray-800/50`}>
               <AnimatePresence mode="wait" custom={projectSlideDirection}>
                 <motion.div
                   key={`${selectedProject.title}-${projectImageIndex}`}
@@ -402,7 +402,7 @@ export default function Projects() {
                   animate="animate"
                   exit="exit"
                   transition={{ duration: 0.28, ease: "easeInOut" }}
-                  className="absolute inset-0 p-4 md:p-6 overflow-auto"
+                  className="absolute inset-0 p-2 sm:p-4 md:p-6 overflow-auto"
                 >
                   <div className="relative w-full h-full">
                     <Image
@@ -421,25 +421,25 @@ export default function Projects() {
                   <button
                     type="button"
                     onClick={showPrevProjectImage}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
+                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
                   >
-                    <ChevronLeft size={20} />
+                    <ChevronLeft size={18} className="sm:w-[20px] sm:h-[20px]" />
                   </button>
                   <button
                     type="button"
                     onClick={showNextProjectImage}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
+                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white/80 dark:bg-gray-800/80 text-gray-900 dark:text-white shadow-lg hover:bg-white"
                   >
-                    <ChevronRight size={20} />
+                    <ChevronRight size={18} className="sm:w-[20px] sm:h-[20px]" />
                   </button>
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-white/80 dark:bg-gray-800/80 text-xs font-semibold text-gray-800 dark:text-gray-100">
+                  <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 px-2 sm:px-3 py-1 rounded-full bg-white/80 dark:bg-gray-800/80 text-xs font-semibold text-gray-800 dark:text-gray-100">
                     {projectImageIndex + 1} / {selectedProject.images.length}
                   </div>
                 </>
               )}
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {selectedProject.github && (
                 <motion.a
                   whileHover={{ scale: 1.05 }}
@@ -447,9 +447,9 @@ export default function Projects() {
                   href={selectedProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                 >
-                  <Github size={16} />
+                  <Github size={14} className="sm:w-[16px] sm:h-[16px]" />
                   Github
                 </motion.a>
               )}
@@ -460,30 +460,30 @@ export default function Projects() {
                   href={selectedProject.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                 >
-                  <ExternalLink size={16} />
+                  <ExternalLink size={14} className="sm:w-[16px] sm:h-[16px]" />
                   Live
                 </motion.a>
               )}
             </div>
 
-            <div className="space-y-3">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+            <div className="space-y-2 sm:space-y-3">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                 {selectedProject.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                 {selectedProject.description}
               </p>
 
               {selectedProject.tech.length > 0 && (
-                <div className="flex flex-wrap gap-3 pt-2">
+                <div className="flex flex-wrap gap-2 sm:gap-3 pt-2">
                   {selectedProject.tech.map((tech) => (
                     <div
                       key={`project-${selectedProject.title}-${tech.name}`}
-                      className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-3 py-1.5 rounded-full text-sm font-medium"
+                      className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-2 sm:px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium"
                     >
-                      <tech.icon size={16} style={{ color: tech.color }} />
+                      <tech.icon size={14} className="sm:w-[16px] sm:h-[16px]" style={{ color: tech.color }} />
                       <span className="text-gray-800 dark:text-gray-100">
                         {tech.name}
                       </span>

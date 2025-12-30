@@ -23,9 +23,9 @@ export default function About() {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
             <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               Tentang Saya
             </span>
@@ -37,39 +37,39 @@ export default function About() {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white dark:bg-gray-900 rounded-2xl p-8 sm:p-12 shadow-xl "
+          className="bg-white dark:bg-gray-900 rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl "
         >
-          <div className="space-y-6 text-lg leading-relaxed text-gray-700 dark:text-gray-300 ">
+          <div className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed text-gray-700 dark:text-gray-300 ">
             <p>
               Halo! Saya{" "}
               <span className="font-semibold text-purple-600 dark:text-purple-400">
                 Rafly FA
               </span>
-              , Saya adalah mahasiswa S1 Sistem Informasi di Universitas
-              Siliwangi, saat ini sedang menempuh semester 3. Ketertarikan saya
-              terhadap dunia teknologi, khususnya pengembangan web, tumbuh
-              seiring dengan pengalaman yang saya bangun melalui berbagai proyek
-              pribadi. Sejauh ini, saya telah menyelesaikan banyak proyek web
-              dengan pendekatan modern menggunakan React, Next.js, Tailwind CSS,
-              dan Bootstrap.
+              . Sebagai mahasiswa Sistem Informasi di Universitas
+              Siliwangi, saya menggabungkan pemikiran analitis dengan
+              kreativitas digital. Fokus utama saya adalah pengembangan web
+              modern menggunakan ekosistem <span className="font-semibold text-purple-600 dark:text-purple-400">React, Next.js, dan Tailwind CSS</span>,
+              di mana saya terus menantang diri untuk membangun aplikasi yang
+              skalabel dan responsif.
             </p>
 
             <p>
-              Saya juga memiliki minat yang cukup besar dalam bidang UI/UX
-              karena saya percaya bahwa desain yang baik sama pentingnya dengan
-              logika program. Kombinasi keduanya menciptakan produk digital yang
-              tidak hanya berfungsi dengan baik, tapi juga menyenangkan
-              digunakan.
+             Ketertarikan saya pada UI/UX bukan sekadar hobi, melainkan kompetensi
+              inti yang terus saya asah. Filosofi desain saya—bahwa estetika harus
+              berjalan beriringan dengan fungsi—telah terbukti melalui pencapaian
+              saya meraih <span className="font-semibold text-purple-600 dark:text-purple-400">Juara 2 Kompetisi UI/UX Tingkat Nasional</span>.
+              Prestasi ini memotivasi saya untuk selalu menghadirkan pengalaman
+              pengguna (User Experience) terbaik dalam setiap baris kode yang
+              saya tulis.
             </p>
 
             <p>
-              Meski belum memiliki pengalaman profesional di organisasi atau
-              freelance, saya terus mengembangkan kemampuan secara mandiri dan
-              telah memperoleh sertifikat resmi Web Development dari Dicoding
-              sebagai langkah awal membangun kredibilitas di industri. Ke
-              depannya, saya ingin bekerja secara remote dan menjadi freelance
-              developer yang bisa berkontribusi di berbagai proyek digital, baik
-              lokal maupun internasional.
+              Dedikasi saya terhadap pertumbuhan teknis dibuktikan dengan
+              perolehan <span className="font-semibold text-purple-600 dark:text-purple-400">2 Sertifikasi Nasional</span> dan penyelesaian <span className="font-semibold text-purple-600 dark:text-purple-400">4 Bootcamp Intensif</span>.
+              Selain itu, pengalaman magang saya di bidang Desain Grafis memberikan
+              perspektif visual yang kuat, menjadi nilai tambah yang signifikan
+              saat saya menerjemahkan desain ke dalam antarmuka web (Frontend)
+              yang presisi.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
@@ -86,7 +86,7 @@ export default function About() {
                   Passion
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Antusias menciptakan pengalaman web yang bermakna dan
+                  Memiliki antusiasme tinggi dalam menciptakan solusi web yang
                   berdampak.
                 </p>
               </motion.div>
@@ -101,11 +101,11 @@ export default function About() {
                   <Lightbulb size={24} className="text-white" />
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                  Inovasi
+                  Proven Skill
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Selalu eksplorasi pendekatan baru dalam desain dan
-                  pengembangan web.
+                  Teruji melalui kompetisi Nasional dan sertifikasi teknis
+                  terstandar.
                 </p>
               </motion.div>
 
@@ -119,24 +119,24 @@ export default function About() {
                   <Target size={24} className="text-white" />
                 </div>
                 <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                  Fokus
+                  Goal Oriented
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Konsisten mengutamakan kualitas, detail, dan kepuasan
-                  pengguna.
+                  Fokus pada kualitas kode, detail visual, dan kepuasan pengguna.
                 </p>
               </motion.div>
             </div>
 
             <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl p-6 mt-8">
               <h3 className="font-semibold text-xl mb-3 text-purple-700 dark:text-purple-300">
-                Tujuan
+                Tujuan Karier
               </h3>
               <p className="text-gray-700 dark:text-gray-300">
-                Menjadi web developer yang adaptif, kreatif, dan profesional
-                dengan kontribusi nyata dalam membangun produk digital
-                berkualitas tinggi. Siap bekerja secara fleksibel, remote, dan
-                terus berkembang mengikuti teknologi terbaru.
+                Siap berkontribusi secara profesional sebagai Freelance atau Remote
+                Developer. Saya menawarkan kombinasi keahlian teknis (Frontend)
+                dan kepekaan desain (UI/UX) untuk membantu tim atau klien
+                membangun produk digital yang tidak hanya fungsional, tetapi juga
+                estetis dan berprestasi.
               </p>
             </div>
           </div>

@@ -45,20 +45,7 @@ const experienceData: Experience[] = [
     ],
     type: "Organisasi",
   },
-  {
-    id: 3,
-    role: "Analis Bisnis & Penyusun Proposal",
-    organization: "Business Plan Competition (Payung Geulis Project)",
-    period: "September 2025 - Oktober 2025",
-    description:
-      "Merancang proposal bisnis untuk pendirian Agensi Kreatif guna merevitalisasi sektor UMKM Payung Geulis.",
-    achievements: [
-      "Analisis Finansial: Menyusun Rencana Anggaran Biaya (RAB) dan proyeksi profitabilitas untuk memastikan kelayakan bisnis.",
-      "Riset Pasar: Melakukan analisis pasar mendalam untuk menentukan target audiens dan strategi pemasaran digital.",
-      "Penyusunan Proposal: Bertanggung jawab menyusun dokumen proposal bisnis yang sistematis, mulai dari latar belakang hingga strategi eksekusi.",
-    ],
-    type: "Kompetisi",
-  },
+  
 ];
 
 const badgeStyles: Record<ExperienceType, string> = {

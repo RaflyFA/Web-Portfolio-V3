@@ -389,19 +389,19 @@ Terima kasih!`;
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Kolom kiri: Formulir + Connect With Me */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8 shadow-lg flex flex-col h-fit"
+            className="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col h-fit"
           >
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+            <div className="mb-6 sm:mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
                 Kirim Pesan
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">
                 Ceritakan tentang proyek Anda dan mari kita diskusikan lebih
                 lanjut
               </p>
@@ -411,14 +411,14 @@ Terima kasih!`;
               <div className="relative">
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Nama Lengkap
                 </label>
                 <div className="relative">
                   <User
-                    size={20}
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 sm:w-[20px] sm:h-[20px]"
                   />
                   <input
                     type="text"
@@ -427,7 +427,7 @@ Terima kasih!`;
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+                    className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200 text-sm"
                     placeholder="Masukkan nama lengkap Anda"
                   />
                 </div>
@@ -436,14 +436,14 @@ Terima kasih!`;
               <div className="relative">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Email Address
                 </label>
                 <div className="relative">
                   <Mail
-                    size={20}
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 sm:w-[20px] sm:h-[20px]"
                   />
                   <input
                     type="email"
@@ -452,7 +452,7 @@ Terima kasih!`;
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+                    className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200 text-sm"
                     placeholder="email@gmail.com"
                   />
                 </div>
@@ -461,14 +461,14 @@ Terima kasih!`;
               <div className="relative">
                 <label
                   htmlFor="projectType"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Jenis Proyek
                 </label>
                 <div className="relative">
                   <Briefcase
-                    size={20}
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                    size={18}
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 sm:w-[20px] sm:h-[20px]"
                   />
                   <select
                     id="projectType"
@@ -476,7 +476,7 @@ Terima kasih!`;
                     value={formData.projectType}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200"
+                    className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200 text-sm"
                   >
                     <option value="">Pilih jenis proyek</option>
                     <option value="Website Development">
@@ -494,14 +494,14 @@ Terima kasih!`;
               <div className="relative">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Pesan
                 </label>
                 <div className="relative">
                   <MessageCircle
-                    size={20}
-                    className="absolute left-3 top-4 text-gray-400"
+                    size={18}
+                    className="absolute left-3 top-4 text-gray-400 sm:w-[20px] sm:h-[20px]"
                   />
                   <textarea
                     id="message"
@@ -510,7 +510,7 @@ Terima kasih!`;
                     onChange={handleChange}
                     required
                     rows={5}
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200 resize-none"
+                    className="w-full pl-10 sm:pl-12 pr-4 py-2.5 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-200 resize-none text-sm"
                     placeholder="Ceritakan detail proyek Anda, timeline, budget, dan ekspektasi..."
                   />
                 </div>
@@ -520,9 +520,9 @@ Terima kasih!`;
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 sm:py-4 px-4 sm:px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base"
               >
-                <Send size={20} />
+                <Send size={18} className="sm:w-[20px] sm:h-[20px]" />
                 <span>Kirim Pesan</span>
               </motion.button>
             </form>

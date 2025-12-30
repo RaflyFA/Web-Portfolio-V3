@@ -180,28 +180,46 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
 
       {/* Mobile Menu */}
       <AnimatePresence>
+        
         {isOpen && (
-          <motion.div
-            ref={mobileMenuRef}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700"
-          >
-            <div className="px-4 py-2 space-y-1">
-              {navItems.map((item) => (
-                <motion.button
-                  key={item.name}
-                  whileHover={{ x: 10 }}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
-                >
-                  {item.name}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop Blur - untuk blur halaman di belakang */}
+            
+            {/* Mobile Menu */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 top-16 z-40 h-screen bg-black/50 backdrop-blur-2xl md:hidden"
+              onClick={() => setIsOpen(false)} // Menutup menu jika area blur diklik
+            />
+            <motion.div
+              ref={mobileMenuRef}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, delay: 0.15 }}
+              className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 relative z-50"
+            >
+              <div className="px-4 py-2 space-y-1">
+                {navItems.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.2, delay: 0.2 + index * 0.05 }}
+                    whileHover={{ x: 10 }}
+                    onClick={() => scrollToSection(item.href)}
+                    className="block w-full text-left px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-200"
+                  >
+                    {item.name}
+                  </motion.button>
+                ))}
+              </div>
+              
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>
