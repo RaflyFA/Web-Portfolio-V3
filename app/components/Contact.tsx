@@ -33,7 +33,6 @@ export default function Contact() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    // Create WhatsApp message
     const whatsappMessage = `Halo Rafly! 👋
 
 Saya ${formData.name} ingin berdiskusi tentang project ${formData.projectType}.
@@ -101,8 +100,6 @@ Terima kasih!`;
     owner: string;
   }
 
-  // Komponen CommentSection
-
   function timeAgo(date: string | Date) {
     const now = new Date();
     const seconds = Math.floor(
@@ -121,7 +118,6 @@ Terima kasih!`;
   }
 
   function CommentSection() {
-    // Ambil komentar dari localStorage saat mount
     const [comments, setComments] = useState(() => {
       if (typeof window !== "undefined") {
         const saved = localStorage.getItem("comments-v3");
@@ -151,7 +147,6 @@ Terima kasih!`;
     const [photoPreview, setPhotoPreview] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-    // Simpan komentar ke localStorage setiap kali berubah
     React.useEffect(() => {
       if (typeof window !== "undefined") {
         localStorage.setItem("comments-v3", JSON.stringify(comments));
@@ -191,7 +186,6 @@ Terima kasih!`;
       if (fileInputRef.current) fileInputRef.current.value = "";
     };
 
-    // Hapus komentar (hanya admin atau pemilik)
     const handleDelete = (idx: number) => {
       setComments(comments.filter((_: unknown, i: number) => i !== idx));
     };

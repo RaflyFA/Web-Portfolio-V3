@@ -26,7 +26,7 @@ export default function Footer() {
       icon: SiInstagram,
       href: "https://instagram.com/rfl.yfa",
       color: "hover:text-pink-500",
-    }, // Instagram ditambahkan
+    },
     {
       name: "LinkedIn",
       icon: SiLinkedin,
@@ -56,8 +56,7 @@ export default function Footer() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      // Ambil offset dari bagian atas elemen fixed/sticky (misalnya navbar)
-      const navbarHeight = document.querySelector("nav")?.offsetHeight || 64; // Dapatkan tinggi navbar dinamis atau default 64px
+      const navbarHeight = document.querySelector("nav")?.offsetHeight || 64;
       const offsetPosition =
         element.getBoundingClientRect().top + window.scrollY - navbarHeight;
 

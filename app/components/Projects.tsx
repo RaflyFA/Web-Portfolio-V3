@@ -24,7 +24,6 @@ export default function Projects() {
     threshold: 0.1,
   });
 
-  // Definisi tipe data untuk Project
   interface Project {
     title: string;
     category: string;
@@ -97,6 +96,7 @@ export default function Projects() {
         { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
         { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
         { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+        { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
         { name: "Vercel", icon: SiVercel, color: "#000000" },
       ],
       github: "https://github.com/RaflyFA/victory-jokii",
@@ -133,7 +133,7 @@ export default function Projects() {
         { name: "CSS3", icon: SiCss3, color: "#1572B6" },
         { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
       ],
-      github: "https://github.com/RaflyFA/kedaiKopi", // Perbaiki typo "hhttps"
+      github: "https://github.com/RaflyFA/kedaiKopi",
       live: "https://raflyfa.github.io/kedaiKopi/",
       images: ["/kedaikopi.jpg", "/kedaikopi2.jpg", "/kedaikopi3.jpg"],
       gradient: "from-gray-500 to-orange-500",
@@ -232,16 +232,13 @@ export default function Projects() {
       className={`bg-gradient-to-br ${project.bgGradient} rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800 cursor-pointer`}
     >
       <div className="p-6 flex flex-col h-full">
-        {/* Category */}
         <div className="flex items-center justify-between mb-4">
           <span className="text-sm font-medium text-gray-600 dark:text-gray-400 bg-white/50 dark:bg-gray-800/50 px-3 py-1 rounded-full backdrop-blur-sm">
             {project.category}
           </span>
         </div>
 
-        {/* Project Image */}
         <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
-          {/* Perbaiki src Image agar tidak ada || "/placeholder.svg" jika Anda yakin gambar selalu ada */}
           <Image
             src={project.images[0]}
             alt={project.title}
@@ -250,22 +247,16 @@ export default function Projects() {
           />
         </div>
 
-        {/* Project Title */}
         <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
           {project.title}
         </h3>
 
-        {/* Description */}
         <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-sm">
           {project.description}
         </p>
 
-        {/* Tech Stack */}
         <div className="flex flex-wrap gap-3 mb-6">
-          {project.tech.map(
-            (
-              tech // Tidak perlu type any lagi karena sudah diinfer dari Project interface
-            ) => (
+          {project.tech.map((tech) => (
               <div
                 key={tech.name}
                 className="flex items-center space-x-1 bg-white/50 dark:bg-gray-800/50 px-2 py-1 rounded-full backdrop-blur-sm"
@@ -277,8 +268,7 @@ export default function Projects() {
           )}
         </div>
 
-        {/* Links - Kondisional untuk GitHub */}
-        <div className="flex space-x-4 mt-auto">
+        <div className="flex space-x-4 mt-auto ">
           {project.github && (
             <motion.a
               whileHover={{ scale: 1.05 }}
@@ -287,14 +277,13 @@ export default function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(event) => event.stopPropagation()}
-              className="flex items-center space-x-2 px-3 py-1 rounded-md bg-white/60 dark:bg-gray-800/60  hover:bg-white hover:dark:bg-gray-700 transition-all duration-200 backdrop-blur"
+              className=" flex items-center space-x-2 px-3 py-1 rounded-md bg-white/60 dark:bg-gray-800/60  hover:bg-white hover:dark:bg-gray-700 transition-all duration-200 backdrop-blur"
             >
               <Github size={18} className="text-current" />
               <span className="text-sm font-medium">Github</span>
             </motion.a>
           )}
 
-          {/* Link Live selalu ada */}
           {project.live && (
             <motion.a
               whileHover={{ scale: 1.05 }}
@@ -326,7 +315,6 @@ export default function Projects() {
             className="text-center mb-16"
           ></motion.div>
 
-          {/* Web Projects */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-8 ">Web Development</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -341,7 +329,6 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* Design Projects */}
           <div>
             <h3 className="text-2xl font-bold mb-8 text-gray-900 dark:text-white">
               UI/UX Design

@@ -12,7 +12,7 @@ interface NavbarProps {
 export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
-  const navToggleBtnRef = useRef<HTMLButtonElement>(null); // Ref untuk tombol toggle hamburger
+  const navToggleBtnRef = useRef<HTMLButtonElement>(null);
 
   const navItems = [
     { name: "Beranda", href: "#home" },
@@ -65,7 +65,6 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
     };
 
     if (href.startsWith("#")) {
-      // Beri sedikit jeda ketika menutup menu mobile agar animasi terasa halus
       const delay = isOpen ? 250 : 0;
       setTimeout(performScroll, delay);
     } else {
@@ -73,10 +72,8 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
     }
   };
 
-  // Close menu when clicking outside of the mobile menu itself
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Pastikan klik TIDAK dari dalam menu mobile ATAU dari tombol hamburger itu sendiri
       if (
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(event.target as Node) &&
@@ -89,24 +86,21 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      // Opsional: tambahkan event listener untuk sentuhan di perangkat mobile
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      // Hapus listener touchstart juga
     };
   }, [isOpen]);
 
-  // Handle body scroll locking when mobile menu is open
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = "hidden"; // Mencegah scroll body
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""; // Mengizinkan scroll body kembali
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ""; // Bersihkan saat komponen unmount
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
@@ -165,7 +159,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </motion.button>
             <motion.button
-              ref={navToggleBtnRef} //
+              ref={navToggleBtnRef}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
@@ -192,7 +186,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="fixed inset-0 top-16 z-40 h-screen bg-black/50 backdrop-blur-2xl md:hidden"
-              onClick={() => setIsOpen(false)} // Menutup menu jika area blur diklik
+              onClick={() => setIsOpen(false)}
             />
             <motion.div
               ref={mobileMenuRef}

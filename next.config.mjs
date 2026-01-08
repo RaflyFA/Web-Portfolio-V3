@@ -14,7 +14,6 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons'],
   },
-  // Optimize for npm
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
