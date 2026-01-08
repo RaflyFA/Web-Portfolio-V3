@@ -88,6 +88,25 @@ export default function Projects() {
         "from-gray-200 to-blue-100 dark:from-blue-200/20 dark:to-gray-900/50",
     },
     {
+      title: "E-Commerce VictoryJoki",
+      category: "Web Application",
+      description:
+      "Landing page untuk jasa joki game, dirancang untuk menampilkan layanan dengan tampilan profesional. Masih dalam tahap pengembangan sebagai prototype awal, fokusnya adalah membangun UI yang dapat dikembangkan menjadi sistem penuh di masa mendatang.",
+      tech: [
+        { name: "React.js", icon: SiReact, color: "#61DAFB" },
+        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+        { name: "Vercel", icon: SiVercel, color: "#000000" },
+      ],
+      github: "https://github.com/RaflyFA/victory-jokii",
+      live: "https://victory-jokii.vercel.app/",
+      images: ["/WebsiteJoki.jpg", "/WebsiteJoki2.jpg", "/WebsiteJoki3.jpg", "/WebsiteJoki4.jpg", "/WebsiteJoki5.jpg", "/WebsiteJoki6.jpg", "/WebsiteJoki7.jpg"],
+      gradient: "from-green-500 to-teal-500",
+      bgGradient:
+      "from-green-100 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20",
+    },
+    {
       title: "Website Admin Rental PS",
       category: "Web Application",
       description:
@@ -103,25 +122,6 @@ export default function Projects() {
       gradient: "from-blue-500 to-purple-500",
       bgGradient:
         "from-black-200 to-blue-100 dark:from-black-900/20 dark:to-blue-900/50",
-    },
-    {
-      title: "Landing-Page VictoryJoki",
-      category: "Web Application",
-      description:
-        "Landing page untuk jasa joki game, dirancang untuk menampilkan layanan dengan tampilan profesional. Masih dalam tahap pengembangan sebagai prototype awal, fokusnya adalah membangun UI yang dapat dikembangkan menjadi sistem penuh di masa mendatang.",
-      tech: [
-        { name: "React.js", icon: SiReact, color: "#61DAFB" },
-        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
-        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-        { name: "Vercel", icon: SiVercel, color: "#000000" },
-      ],
-      github: "https://github.com/RaflyFA/VictoryJoki",
-      live: "https://victoryjoki.vercel.app/",
-      images: ["/WebsiteJoki.jpg", "/WebsiteJoki2.jpg", "/WebsiteJoki3.jpg"],
-      gradient: "from-green-500 to-teal-500",
-      bgGradient:
-        "from-green-100 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20",
     },
     {
       title: "Landing-Page KedaiKopi",
@@ -142,7 +142,6 @@ export default function Projects() {
     },
   ];
 
-  // === PERUBAHAN UTAMA DI SINI ===
   const designProjects: Project[] = [
     {
       title: "Temuloka Mobile App",
@@ -151,7 +150,7 @@ export default function Projects() {
         "Konsep aplikasi pemenang juara 2 lomba UI/UX tim kami. Temuloka membantu masyarakat menemukan informasi destinasi wisata Indonesia dengan fitur rekomendasi pintar, kurasi event lokal, dan komunitas traveler.",
       tech: [{ name: "Figma", icon: SiFigma, color: "#F24E1E" }],
       live: "https://www.figma.com/proto/ujXVOPSVw3qkp2LEhN37i8/UI-Iconic-IT?node-id=1059-3116&t=vi5gYIcNnluF7LMt-0&scaling=scale-down&content-scaling=fixed&page-id=754%3A626&starting-point-node-id=1059%3A4244",
-      images: ["/uiux.jpg"],
+      images: ["/uiux.jpg", "/uiux2.jpg", "/uiux3.png", "/uiux4.png"],
       gradient: "from-teal-500 to-cyan-500",
       bgGradient:
         "from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20",
@@ -162,8 +161,8 @@ export default function Projects() {
       description:
         "Desain UI/UX untuk website e-commerce Thinksale. Fokus pada user experience yang intuitif dan desain yang modern untuk meningkatkan konversi penjualan.",
       tech: [{ name: "Figma", icon: SiFigma, color: "#F24E1E" }],
-      live: "https://www.figma.com/design/mkQ1SC3Ddi0MbiaYLgw3NF/Untitled?node-id=0-1&p=f&t=rQORAwHlU6qG0ZtM-0",
-      images: ["/desain1(1).png"],
+      live: "https://www.figma.com/proto/S9SIKXHaozrVadMm9SxHQE/Untitled?node-id=1-9&p=f&t=Puhiws4Yyg2iindf-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A9",
+      images: ["/desain1(1).png", "/desain2(2).png", "/desain4(4).png", "/desain3(3).png"],
       gradient: "from-gray-500 to-blue-500",
       bgGradient:
         "from-gray-100 to-blue-100 dark:from-gray-900/20 dark:to-blue-900/20",
