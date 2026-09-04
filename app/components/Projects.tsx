@@ -15,6 +15,8 @@ import {
   SiHtml5,
   SiCss3,
   SiJavascript,
+  SiPostgresql,
+  SiPrisma,
 } from "react-icons/si";
 import Image from "next/image";
 
@@ -50,6 +52,30 @@ export default function Projects() {
   }, [selectedProject]);
   
   const webProjects: Project[] = [
+    {
+      title: "CosmoDesk (Ticketing & Helpdesk System)",
+      category: "Web Application",
+      description:
+        "Aplikasi Helpdesk / System Management Tiket & Operasional Harian yang dirancang untuk membantu tim operasional dan teknis dalam mencatat, mengelola, serta memantau penanganan masalah/kendala teknis (ticketing), koordinasi lapangan, serta pemantauan lokasi perangkat secara terpusat. Project ini dikerjakan saat magang di PT Solusi INTEK Indonesia.",
+      tech: [
+        { name: "Next.js 16", icon: SiNextdotjs, color: "#000000" },
+        { name: "React 19", icon: SiReact, color: "#61DAFB" },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+        { name: "Tailwind CSS v4", icon: SiTailwindcss, color: "#06B6D4" },
+        { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+        { name: "Prisma ORM", icon: SiPrisma, color: "#2D3748" },
+      ],
+      images: [
+        "/ticketing.png",
+        "/ticketing 2.png",
+        "/ticketing 3.png",
+        "/ticketing 4.png",
+        "/ticketing 5.png",
+      ],
+      gradient: "from-blue-600 to-indigo-600",
+      bgGradient:
+        "from-blue-100 to-indigo-100 dark:from-blue-950/30 dark:to-indigo-950/30",
+    },
     {
       title: "E-Commerce Thinksale",
       category: "Web Application",

@@ -20,6 +20,8 @@ import {
   SiGithub,
   SiGitlab,
   SiSourcetree,
+  SiPostgresql,
+  SiPrisma,
 } from "react-icons/si";
 
 export default function Skills() {
@@ -71,11 +73,13 @@ export default function Skills() {
       title: "Backend",
       tools: [
         { name: "Node.js", icon: <SiNodedotjs className="text-green-600" /> },
+        { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-600" /> },
+        { name: "Prisma", icon: <SiPrisma className="text-slate-800 dark:text-white" /> },
+        { name: "Supabase", icon: <SiSupabase className="text-emerald-500" /> },
         {
           name: "Vercel",
           icon: <SiVercel className="text-black dark:text-white" />,
         },
-        { name: "Supabase", icon: <SiSupabase className="text-emerald-500" /> },
       ],
       gradient: "from-gray-400 to-gray-600 dark:from-gray-800 dark:to-gray-700",
       bgGradient:

@@ -66,10 +66,11 @@ export default function About() {
             <p>
               Dedikasi saya terhadap pertumbuhan teknis dibuktikan dengan
               perolehan <span className="font-semibold text-purple-600 dark:text-purple-400">2 Sertifikasi Nasional</span> dan penyelesaian <span className="font-semibold text-purple-600 dark:text-purple-400">4 Bootcamp Intensif</span>.
-              Selain itu, pengalaman magang saya di bidang Desain Grafis memberikan
-              perspektif visual yang kuat, menjadi nilai tambah yang signifikan
-              saat saya menerjemahkan desain ke dalam antarmuka web (Frontend)
-              yang presisi.
+              Selain itu, pengalaman magang saya sebagai <span className="font-semibold text-purple-600 dark:text-purple-400">Programmer</span> dalam
+              membangun sistem operasional berskala nyata (enterprise) memperkuat
+              kemampuan saya. Kombinasi antara kepekaan visual (UI/UX) dan keahlian
+              teknis (Fullstack) ini menjadi nilai tambah yang signifikan saat saya
+              mengembangkan produk digital yang presisi, tangguh, dan berdampak.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
@@ -132,11 +133,12 @@ export default function About() {
                 Tujuan Karier
               </h3>
               <p className="text-gray-700 dark:text-gray-300">
-                Siap berkontribusi secara profesional sebagai Freelance atau Remote
-                Developer. Saya menawarkan kombinasi keahlian teknis (Frontend)
-                dan kepekaan desain (UI/UX) untuk membantu tim atau klien
-                membangun produk digital yang tidak hanya fungsional, tetapi juga
-                estetis dan berprestasi.
+                Siap berkontribusi secara profesional sebagai Software Engineer
+                atau Frontend/Fullstack Developer. Saya menawarkan kombinasi
+                keahlian teknis yang komprehensif dan kepekaan desain (UI/UX)
+                untuk membantu tim perusahaan atau klien membangun produk digital
+                yang tidak hanya estetis dan interaktif, tetapi juga fungsional
+                dan scalable.
               </p>
             </div>
           </div>

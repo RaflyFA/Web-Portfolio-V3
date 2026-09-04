@@ -2,9 +2,9 @@
 
 import { useState, type ReactNode } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Award, Briefcase, Target, ChevronDown } from "lucide-react";
+import { Award, Briefcase, Target, ChevronDown, Laptop } from "lucide-react";
 
-type ExperienceType = "Pencapaian" | "Organisasi" | "Kompetisi";
+type ExperienceType = "Magang" | "Pencapaian" | "Organisasi" | "Kompetisi";
 
 type Experience = {
   id: number;
@@ -19,6 +19,19 @@ type Experience = {
 const experienceData: Experience[] = [
   {
     id: 1,
+    role: "Programmer (Magang)",
+    organization: "PT Solusi INTEK Indonesia",
+    period: "Juni - Agustus",
+    description:
+      "Mengembangkan aplikasi sistem manajemen tiket operasional dan sistem pemantauan log aktivitas aplikasi internal perusahaan selama program magang 3 bulan.",
+    achievements: [
+      "Pengembangan CosmoDesk: Merancang dan membangun aplikasi Helpdesk & Ticketing System CosmoDesk untuk manajemen pelaporan kendala teknis dan operasional harian perusahaan.",
+      "Pengembangan Lognest: Membangun aplikasi Lognest yang berfungsi untuk memantau dan mencatat seluruh aktivitas log dari semua aplikasi di perusahaan secara terpusat.",
+    ],
+    type: "Magang",
+  },
+  {
+    id: 2,
     role: "Desainer UI/UX (Juara 2)",
     organization: "National UI/UX Competition (HIMIF UNSIL)",
     period: "Juli 2025",
@@ -32,7 +45,7 @@ const experienceData: Experience[] = [
     type: "Pencapaian",
   },
   {
-    id: 2,
+    id: 3,
     role: "Koordinator CSG SMCOM (Social Media Community)",
     organization: "KOPMA UNSIL (Divisi PSDA)",
     period: "September 2025 - Desember 2025",
@@ -40,15 +53,16 @@ const experienceData: Experience[] = [
       "Memimpin tim Cooperative Student Group (CSG) yang berfokus pada manajemen media sosial dan pengembangan kreatif (SMCOM).",
     achievements: [
       "Kepemimpinan Tim: Mengoordinasikan tim beranggotakan 4 orang (Divisi Media, Desain, dan Administrasi) untuk memastikan produktivitas konten dan pengelolaan kepengurusan.",
-      "Perencanaan Strategis: Merancang dan mengeksekusi rencana konten (content plan) strategis selama periode kepengurusan untuk meningkatkan keterlibatan (engagement) anggota.",
+      "Perencanaan Strategis: Merancang dan mengeksekusi rencana konten (content plan) strategis selama periode kepengurusan untuk meningkatkan keterlibatan (engagement) media sosial.",
       "Inisiatif Komersial: Mengelola proyek layanan jasa desain komersial berupa komisi berbayar (open paid commission) untuk mendukung pemasukan finansial Bidang Usaha KOPMA.",
     ],
     type: "Organisasi",
   },
-  
 ];
 
 const badgeStyles: Record<ExperienceType, string> = {
+  Magang:
+    "bg-indigo-100 text-indigo-800 dark:bg-indigo-500/20 dark:text-indigo-200",
   Pencapaian:
     "bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-200",
   Organisasi:
@@ -58,6 +72,7 @@ const badgeStyles: Record<ExperienceType, string> = {
 };
 
 const iconMap: Record<ExperienceType, ReactNode> = {
+  Magang: <Laptop size={16} />,
   Pencapaian: <Award size={16} />,
   Organisasi: <Briefcase size={16} />,
   Kompetisi: <Target size={16} />,

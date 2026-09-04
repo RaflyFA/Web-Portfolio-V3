@@ -148,7 +148,7 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-xl lg:text-2xl font-semibold text-gray-700 dark:text-gray-300 mt-0"
             >
-              Web Developer & UI/UX Designer
+              Fullstack Developer & UI/UX Designer
             </motion.h2>
 
             <motion.p
@@ -157,9 +157,10 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-base sm:text-lg md:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto md:mx-0 leading-relaxed"
             >
-              Membangun Website yang efisien menggunakan React dan Next.js.
-              Fokus pada performa dan struktur kode yang rapih dan bersih, Siap
-              mengembangkan website yang keren dan kompleks sesuai kebutuhan.
+              Membangun sistem informasi dan aplikasi web modern berskala enterprise
+              menggunakan ekosistem React dan Next.js. Berfokus pada performa,
+              arsitektur kode yang tangguh, serta pengalaman pengguna (UI/UX)
+              yang intuitif untuk memecahkan masalah bisnis yang kompleks.
             </motion.p>
 
             <motion.div
