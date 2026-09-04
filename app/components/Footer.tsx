@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import { Heart, Coffee } from "lucide-react";
 import {
   SiInstagram,
-  SiLinkedin,
   SiGithub,
   SiX,
   SiFacebook,
-} from "react-icons/si";
+} from "@icons-pack/react-simple-icons";
+import { SiLinkedin } from "./CustomIcons";
 
 export default function Footer() {
   const navItems = [

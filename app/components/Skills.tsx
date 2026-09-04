@@ -10,9 +10,7 @@ import {
   SiTailwindcss,
   SiBootstrap,
   SiHtml5,
-  SiCss3,
   SiFigma,
-  SiCanva,
   SiNodedotjs,
   SiSupabase,
   SiVercel,
@@ -22,7 +20,8 @@ import {
   SiSourcetree,
   SiPostgresql,
   SiPrisma,
-} from "react-icons/si";
+} from "@icons-pack/react-simple-icons";
+import { SiCanva, SiCss3 } from "./CustomIcons";
 
 export default function Skills() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });

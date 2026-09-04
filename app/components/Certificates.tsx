@@ -16,10 +16,8 @@ import {
   ZoomIn,
   ZoomOut,
 } from "lucide-react";
-import { IconType } from "react-icons";
 import {
   SiFigma,
-  SiCanva,
   SiReact,
   SiNextdotjs,
   SiTypescript,
@@ -27,11 +25,11 @@ import {
   SiBootstrap,
   SiVercel,
   SiHtml5,
-  SiCss3,
   SiGit,
   SiGithub,
   SiGitlab,
-} from "react-icons/si";
+} from "@icons-pack/react-simple-icons";
+import { IconType, SiCanva, SiCss3 } from "./CustomIcons";
 
 type Certificate = {
   title: string;

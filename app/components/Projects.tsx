@@ -13,11 +13,11 @@ import {
   SiSupabase,
   SiVercel,
   SiHtml5,
-  SiCss3,
   SiJavascript,
   SiPostgresql,
   SiPrisma,
-} from "react-icons/si";
+} from "@icons-pack/react-simple-icons";
+import { SiCss3 } from "./CustomIcons";
 import Image from "next/image";
 
 export default function Projects() {

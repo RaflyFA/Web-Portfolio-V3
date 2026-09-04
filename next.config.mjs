@@ -14,10 +14,7 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
   },
   experimental: {
-    optimizePackageImports: ['lucide-react', 'react-icons'],
-    cpus: 1,
-    workerThreads: false,
-    memoryBasedWorkersCount: true,
+    optimizePackageImports: ['lucide-react', '@icons-pack/react-simple-icons'],
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
