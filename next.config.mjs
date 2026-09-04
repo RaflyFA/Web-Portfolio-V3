@@ -15,6 +15,9 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons'],
+    cpus: 1,
+    workerThreads: false,
+    memoryBasedWorkersCount: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
