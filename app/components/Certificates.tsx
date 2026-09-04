@@ -28,6 +28,8 @@ import {
   SiGit,
   SiGithub,
   SiGitlab,
+  SiPostgresql,
+  SiPrisma,
 } from "@icons-pack/react-simple-icons";
 import { IconType, SiCanva, SiCss3 } from "./CustomIcons";
 
@@ -60,6 +62,25 @@ export default function Certificates() {
   }, [selectedCert]);
 
   const certificates: Certificate[] = [
+    {
+      title: "Sertifikat Magang Programmer",
+      issuer: "PT Solusi INTEK Indonesia",
+      description:
+        "Mengembangkan aplikasi sistem manajemen tiket operasional (CosmoDesk) dan sistem pemantauan log aktivitas aplikasi internal perusahaan (Lognest) selama program magang sebagai Programmer.",
+      date: "Agustus 2026",
+      images: ["/Sertifikat Magang Programer.png"],
+      gradient: "from-blue-600 to-indigo-600",
+      bgGradient:
+        "from-blue-200 to-indigo-200 dark:from-blue-900/20 dark:to-indigo-900/20",
+      tech: [
+        { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+        { name: "React.js", icon: SiReact, color: "#61DAFB" },
+        { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+        { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+        { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+        { name: "Prisma ORM", icon: SiPrisma, color: "#2D3748" },
+      ],
+    },
     {
       title: "KMI Award XVI - P2MW 2025",
       issuer: "Kemdikbudristek & Universitas Tidar",
